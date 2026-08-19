@@ -1,9 +1,9 @@
 {
-  "generated_at": 1787139913,
+  "generated_at": 1787141308,
   "errors": [
     {
       "shop": "Jura Watches",
-      "error": "500 Server Error: Internal Server Error for url: https://www.jurawatches.co.uk/products.json?limit=250&page=3"
+      "error": "500 Server Error: Internal Server Error for url: https://www.jurawatches.co.uk/products.json?limit=250&page=4"
     }
   ],
   "feed": [
