@@ -20,6 +20,10 @@ OUTPUT_PATH = Path("docs/data.json")
 
 REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0 (deal scanner; contact via repo)"}
 
+# Below this many recorded scans, we don't claim anything about an item's
+# price history - "lowest we've seen" is meaningless on the second sighting.
+MIN_OBSERVATIONS_FOR_HISTORY = 4
+
 
 def load_json(path, default):
     if path.exists():
@@ -37,15 +41,24 @@ def parse_price(value):
 
 
 def fetch_products(domain, max_pages=5):
-    """Shopify's public product feed, paginated 250 at a time."""
+    """Shopify's public product feed, paginated 250 at a time.
+
+    A failure on any single page (transient 500s happen, especially on
+    larger catalogues at deeper page numbers) stops pagination but keeps
+    whatever was already fetched - losing pages 1-3 because page 4 hiccuped
+    would throw away real, valid products for no good reason."""
     products = []
     for page in range(1, max_pages + 1):
         url = f"https://{domain}/products.json"
-        resp = requests.get(
-            url, params={"limit": 250, "page": page}, headers=REQUEST_HEADERS, timeout=20
-        )
-        resp.raise_for_status()
-        batch = resp.json().get("products", [])
+        try:
+            resp = requests.get(
+                url, params={"limit": 250, "page": page}, headers=REQUEST_HEADERS, timeout=20
+            )
+            resp.raise_for_status()
+            batch = resp.json().get("products", [])
+        except Exception as exc:
+            print(f"  ! page {page} failed ({exc}) - keeping {len(products)} products already fetched")
+            break
         if not batch:
             break
         products.extend(batch)
@@ -55,6 +68,48 @@ def fetch_products(domain, max_pages=5):
             print(f"  ! catalogue truncated at {max_pages} pages ({len(products)} products) - some items not scanned")
         time.sleep(1)
     return products
+
+
+def migrate_history(raw):
+    """Old format was {item_id: last_price}. New format keeps the full shape
+    of what we've observed: the low is the number that actually matters, since
+    a retailer's 'was' price is theirs to invent but the price we watched it
+    sit at for weeks is not."""
+    migrated = {}
+    for item_id, value in raw.items():
+        if isinstance(value, dict):
+            migrated[item_id] = value
+        else:
+            migrated[item_id] = {
+                "last": value,
+                "low": value,
+                "high": value,
+                "first_seen": int(time.time()),
+                "observations": 1,
+            }
+    return migrated
+
+
+def update_history(history, item_id, price):
+    """Record this observation and return the record as it stood BEFORE
+    this scan, so scoring can compare today against what came before."""
+    record = history.get(item_id)
+    if record is None:
+        history[item_id] = {
+            "last": price,
+            "low": price,
+            "high": price,
+            "first_seen": int(time.time()),
+            "observations": 1,
+        }
+        return None
+
+    previous = dict(record)
+    record["last"] = price
+    record["low"] = min(record["low"], price)
+    record["high"] = max(record["high"], price)
+    record["observations"] = record.get("observations", 1) + 1
+    return previous
 
 
 def is_excluded(product, global_exclude):
@@ -126,7 +181,15 @@ def build_cards(product, shop, global_exclude, price_history, notes):
     product_id = product.get("id")
     item_id = f"{domain}-{product_id}"
     is_new = item_id not in price_history
-    previous_price = price_history.get(item_id)
+
+    previous = update_history(price_history, item_id, price)
+    record = price_history[item_id]
+
+    previous_price = previous["last"] if previous else None
+    observations = record.get("observations", 1)
+    observed_low = record["low"]
+    observed_high = record["high"]
+    first_seen = record.get("first_seen")
 
     price_dropped = False
     if previous_price is not None and previous_price > price:
@@ -134,13 +197,39 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         if drop > 0.5 and drop / previous_price > 0.01:
             price_dropped = True
 
-    score = min(discount_pct, 70)
-    if price_dropped:
-        score += 15
-    if is_new:
-        score += 5
+    # How much history do we actually have? Below this, any "lowest yet" claim
+    # is noise - we'd just be reporting the first price we ever saw.
+    has_history = observations >= MIN_OBSERVATIONS_FOR_HISTORY
 
-    price_history[item_id] = price
+    # Is this the cheapest we've ever watched it go? This is the claim a
+    # retailer cannot manufacture, unlike compare_at_price. Requires that we
+    # have actually seen the price move: an item parked at one price forever
+    # is technically always "at its low", which would make the badge worthless.
+    has_moved = has_history and observed_high > observed_low
+    at_observed_low = bool(has_moved and previous and price <= previous["low"])
+
+    # How far below its own typical price is it sitting today?
+    below_observed_high = 0
+    if has_history and observed_high > 0:
+        below_observed_high = round((1 - price / observed_high) * 100)
+
+    # SCORING
+    # Discount percentage is deliberately capped low and used only as a weak
+    # tiebreak. It's the number a retailer controls entirely - inflating the
+    # "was" price costs them nothing - so it cannot be the primary signal.
+    # Everything weighted above it is something we observed ourselves.
+    score = 0
+    score += min(discount_pct, 60) * 0.35          # weak signal, capped
+    if at_observed_low:
+        score += 45                                 # strongest: verified low
+    if price_dropped:
+        score += 20                                 # moved down since last scan
+    score += min(below_observed_high, 50) * 0.4     # below its own typical price
+    if has_history:
+        score += min(observations, 40) * 0.25       # confidence in the above
+    if is_new:
+        score += 3                                  # mild freshness nudge only
+    score = round(score, 1)
 
     photo = None
     images = product.get("images") or []
@@ -164,6 +253,13 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         "is_new": is_new,
         "price_dropped": price_dropped,
         "previous_price": previous_price,
+        "at_observed_low": at_observed_low,
+        "observed_low": observed_low if has_history else None,
+        "observed_high": observed_high if has_history else None,
+        "below_observed_high": below_observed_high,
+        "observations": observations,
+        "tracked_since": first_seen,
+        "has_history": has_history,
         "photo": photo,
         "url": product_url,
         # Manual curation lookup, keyed by item_id in notes.json. Blank
@@ -175,7 +271,7 @@ def build_cards(product, shop, global_exclude, price_history, notes):
 
 def main():
     config = json.loads(CONFIG_PATH.read_text())
-    price_history = load_json(PRICE_HISTORY_PATH, {})
+    price_history = migrate_history(load_json(PRICE_HISTORY_PATH, {}))
     notes = load_json(NOTES_PATH, {})
     global_exclude = config.get("global_exclude", [])
     min_discount = config.get("min_discount_pct", 20)
