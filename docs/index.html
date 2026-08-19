@@ -174,7 +174,7 @@ function renderCard(item) {
       ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
       ${sizesLine ? `<p class="sizes">${sizesLine}</p>` : ''}
       <div class="price-row">
-        <span>${pricePrefix}<span class="price">${fmtMoney(item.price_amount)}</span>${item.previous_price ? `<span class="was">${fmtMoney(item.previous_price)}</span>` : ''}</span>
+        <span>${pricePrefix}<span class="price">${fmtMoney(item.price_amount)}</span>${item.compare_at ? `<span class="was">${fmtMoney(item.compare_at)}</span>` : ''}</span>
         <span class="link">View deal →</span>
       </div>
     </div>
