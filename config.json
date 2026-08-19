@@ -46,10 +46,10 @@
       "max_pages": 12
     }
   ],
-  "feed_size": 60,
+  "feed_size": 30,
   "min_discount_pct": 20,
   "min_discount_pct_by_category": {
     "watches": 10
   },
-  "category_floor": 6
+  "category_floor": 5
 }
