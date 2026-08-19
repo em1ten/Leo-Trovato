@@ -112,18 +112,34 @@ def update_history(history, item_id, price):
     return previous
 
 
-def is_excluded(product, global_exclude):
+def product_text(product):
     # Shopify's public products.json returns tags as one comma-separated
     # string, not a list - joining it character-by-character would silently
-    # break every tag-based exclusion. Handle both shapes defensively.
+    # break every keyword check. Handle both shapes defensively.
     tags = product.get("tags", "")
     tags_text = tags if isinstance(tags, str) else " ".join(tags)
-    text = " ".join([
+    return " ".join([
         product.get("title", ""),
         product.get("product_type", ""),
         tags_text,
     ]).lower()
-    return any(term in text for term in global_exclude)
+
+
+def is_excluded(product, exclude_terms):
+    text = product_text(product)
+    return any(term in text for term in exclude_terms)
+
+
+def is_relevant(product, must_include_any):
+    """A retailer's own category tag isn't reliable enough on its own - a shop
+    configured as 'fragrance' may also sell makeup, skincare and haircare, and
+    none of those are what this site claims to curate. If must_include_any is
+    set, the product needs at least one genuine positive signal (e.g. 'eau de
+    parfum') to qualify, rather than just having come from the right domain."""
+    if not must_include_any:
+        return True
+    text = product_text(product)
+    return any(term in text for term in must_include_any)
 
 
 def affiliate_wrap(url, shop):
@@ -138,8 +154,17 @@ def affiliate_wrap(url, shop):
     return url
 
 
-def build_cards(product, shop, global_exclude, price_history, notes):
-    if is_excluded(product, global_exclude):
+def brand_is_notable(vendor, notable_brands):
+    if not vendor or not notable_brands:
+        return False
+    vendor_lower = vendor.strip().lower()
+    return any(vendor_lower == b.lower() for b in notable_brands)
+
+
+def build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands=None):
+    if is_excluded(product, exclude_terms):
+        return []
+    if not is_relevant(product, must_include_any):
         return []
 
     domain = shop["domain"]
@@ -218,6 +243,7 @@ def build_cards(product, shop, global_exclude, price_history, notes):
     # tiebreak. It's the number a retailer controls entirely - inflating the
     # "was" price costs them nothing - so it cannot be the primary signal.
     # Everything weighted above it is something we observed ourselves.
+    is_notable_brand = brand_is_notable(product.get("vendor", ""), notable_brands)
     score = 0
     score += min(discount_pct, 60) * 0.35          # weak signal, capped
     if at_observed_low:
@@ -229,6 +255,8 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         score += min(observations, 40) * 0.25       # confidence in the above
     if is_new:
         score += 3                                  # mild freshness nudge only
+    if is_notable_brand:
+        score += 8                                  # researched reputation, not a gate
     score = round(score, 1)
 
     photo = None
@@ -260,6 +288,7 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         "observations": observations,
         "tracked_since": first_seen,
         "has_history": has_history,
+        "is_notable_brand": is_notable_brand,
         "photo": photo,
         "url": product_url,
         # Manual curation lookup, keyed by item_id in notes.json. Blank
@@ -278,12 +307,23 @@ def main():
     # Per-category overrides: watch markdowns run 10-25% where fashion runs
     # 40-70%, so one global threshold silently excludes an entire category.
     min_discount_by_category = config.get("min_discount_pct_by_category", {})
+    # A shop's assigned category is not the same as what every product in its
+    # catalogue actually is - Escentual sells makeup and haircare alongside
+    # fragrance, and a "menswear" shop can still list women's items. These two
+    # layers catch that: extra terms to always exclude for a given category,
+    # and (for categories where it matters) a positive list a product must
+    # match at least one of to count as genuinely in-category.
+    category_exclude = config.get("category_exclude", {})
+    category_must_include_any = config.get("category_must_include_any", {})
+    notable_brands = config.get("notable_brands", {}).get("list", [])
 
     feed = []
     errors = []
 
     for shop in config["shop_watches"]:
         print(f"Scanning {shop['name']} ({shop['domain']})...")
+        exclude_terms = global_exclude + category_exclude.get(shop["category"], [])
+        must_include_any = category_must_include_any.get(shop["category"])
         try:
             products = fetch_products(shop["domain"], max_pages=shop.get("max_pages", 5))
         except Exception as exc:
@@ -292,7 +332,7 @@ def main():
             continue
 
         for product in products:
-            feed.extend(build_cards(product, shop, global_exclude, price_history, notes))
+            feed.extend(build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands))
 
     def passes_threshold(item):
         threshold = min_discount_by_category.get(item["category"], min_discount)
