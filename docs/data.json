@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787148400,
+  "generated_at": 1787155368,
   "errors": [
     {
       "shop": "Jura Watches",
@@ -136,28 +136,6 @@
       "previous_price": 23.7,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/DK0A4XYKK211-1_1_19.jpg?v=1738858051",
       "url": "https://jeanstore.co.uk/products/dickies-thomasville-loose-fit-mens-jeans-rinsed-blue-with-fade",
-      "note": "",
-      "score": 70
-    },
-    {
-      "id": "jeanstore.co.uk-7822798815426",
-      "title": "Reebok Classic Club C 85 - Dark Green / White",
-      "brand": "Reebok Classic",
-      "category": "menswear",
-      "shop": "Jeanstore",
-      "price_amount": 23.7,
-      "price": "23.70 GBP",
-      "price_is_from": false,
-      "compare_at": 79.0,
-      "sizes": [
-        "UK 4"
-      ],
-      "discount_pct": 70,
-      "is_new": false,
-      "price_dropped": false,
-      "previous_price": 23.7,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/100074451.jpg?v=1713283758",
-      "url": "https://jeanstore.co.uk/products/reebok-classics-club-c-85-dark-green-white",
       "note": "",
       "score": 70
     },
@@ -685,8 +663,7 @@
       "compare_at": 785.0,
       "sizes": [
         "DARK SAND / S",
-        "DARK SAND / M",
-        "DARK SAND / L"
+        "DARK SAND / M"
       ],
       "discount_pct": 62,
       "is_new": false,
@@ -1289,6 +1266,32 @@
       "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72864-5.jpg?v=1776849257",
       "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-olive",
+      "note": "",
+      "score": 59
+    },
+    {
+      "id": "www.stuartslondon.com-10379565269339",
+      "title": "Pittari Short Sleeve Polo Tipping - Palude",
+      "brand": "Pittari",
+      "category": "menswear",
+      "shop": "Stuarts London",
+      "price_amount": 45.0,
+      "price": "45.00 GBP",
+      "price_is_from": false,
+      "compare_at": 110.0,
+      "sizes": [
+        "PALUDE / S",
+        "PALUDE / M",
+        "PALUDE / L",
+        "PALUDE / XL",
+        "PALUDE / XXL"
+      ],
+      "discount_pct": 59,
+      "is_new": false,
+      "price_dropped": false,
+      "previous_price": 45.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72863-4.jpg?v=1776847167",
+      "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-palude",
       "note": "",
       "score": 59
     },
