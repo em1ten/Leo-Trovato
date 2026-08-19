@@ -32,110 +32,103 @@
   }
   .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
 
-  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 20px 80px; }
 
-  header { margin-bottom: 4px; border-bottom: 1px solid var(--border); padding-bottom: 18px; }
+  header { margin-bottom: 4px; padding-bottom: 26px; border-bottom: 1px solid var(--border); }
   h1 {
     font-family: "Marcellus", Georgia, serif;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 400;
     margin: 0;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
-  .tagline { font-size: 13px; color: var(--ink-secondary); margin: 8px 0 4px; max-width: 42ch; line-height: 1.55; }
-  .updated { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .tagline { font-size: 13px; color: var(--ink-secondary); margin: 12px 0 6px; max-width: 46ch; line-height: 1.65; }
+  .updated { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
 
   nav.index {
-    display: flex; gap: 22px; flex-wrap: wrap;
-    margin: 20px 0 26px;
+    display: flex; gap: 28px; flex-wrap: wrap;
+    margin: 28px 0 36px;
     border-bottom: 1px solid var(--border);
   }
   .tab {
-    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--ink-muted); cursor: pointer; user-select: none;
-    padding: 0 0 10px; border-bottom: 2px solid transparent;
+    padding: 0 0 12px; border-bottom: 2px solid transparent;
     margin-bottom: -1px;
-    transition: color 120ms ease, border-color 120ms ease;
+    transition: color 150ms ease, border-color 150ms ease;
   }
   .tab:hover { color: var(--ink-secondary); }
   .tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   .tab.active { color: var(--ink); border-bottom-color: var(--accent); }
 
-  #feed { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  @media (min-width: 720px) {
-    #feed { grid-template-columns: 1fr 1fr; }
-  }
+  #feed { display: grid; grid-template-columns: 1fr; gap: 36px 28px; }
+  @media (min-width: 680px) { #feed { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1020px) { #feed { grid-template-columns: 1fr 1fr 1fr; } }
 
   .card {
-    background: var(--surface); padding: 18px;
-    display: flex; gap: 14px; align-items: flex-start;
+    display: flex; flex-direction: column;
     text-decoration: none; color: inherit;
-    position: relative;
-    transition: background 120ms ease;
   }
-  .card:hover { background: var(--accent-tint); }
-  .card:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
-  .card-body { flex: 1; min-width: 0; }
+  .thumb-wrap {
+    position: relative; width: 100%; aspect-ratio: 4 / 5;
+    background: var(--surface); border: 1px solid var(--border);
+    overflow: hidden; margin-bottom: 16px;
+  }
   .thumb {
-    width: 84px; height: 84px; flex-shrink: 0;
-    border: 1px solid var(--border);
-    object-fit: cover; background: var(--bg);
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
   }
-  @media (max-width: 420px) { .thumb { width: 68px; height: 68px; } }
-
-  .meta-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
-  .shop { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-top: 3px; }
+  .card:hover .thumb { transform: scale(1.03); }
+  .thumb-empty { width: 100%; height: 100%; }
 
   .stamp {
-    flex-shrink: 0;
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    border: 1.5px solid var(--accent);
+    position: absolute; top: 12px; right: 12px;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--bg); border: 1.5px solid var(--accent);
     display: flex; align-items: center; justify-content: center;
     transform: rotate(-6deg);
-    color: var(--accent);
-    font-size: 12px; font-weight: 600;
-    line-height: 1.1; text-align: center;
+    color: var(--accent); font-size: 13px; font-weight: 600;
   }
-  .stamp .pct { font-size: 13px; }
   .stamp.dropped { border-style: double; border-width: 3px; }
 
-  .title { font-family: "Marcellus", Georgia, serif; font-size: 17px; font-weight: 400; margin: 0 0 3px; line-height: 1.3; }
-  .note { font-size: 13px; color: var(--ink-secondary); margin: 3px 0 0; line-height: 1.5; }
-  .sizes { font-size: 11px; color: var(--ink-muted); margin: 8px 0 0; letter-spacing: 0.03em; }
+  .card-body { flex: 1; }
+  .meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 7px; }
+  .shop { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .established { font-size: 10px; letter-spacing: 0.04em; color: var(--ink-muted); }
+
+  .title { font-family: "Marcellus", Georgia, serif; font-size: 19px; font-weight: 400; margin: 0 0 5px; line-height: 1.32; }
+  .note { font-size: 13px; color: var(--ink-secondary); margin: 5px 0 0; line-height: 1.55; }
+  .sizes { font-size: 11px; color: var(--ink-muted); margin: 10px 0 0; letter-spacing: 0.03em; }
 
   .lowflag {
-    display: inline-block; margin: 8px 0 0;
+    display: inline-block; margin: 10px 0 0;
     font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--accent); border: 1px solid var(--accent);
-    padding: 3px 7px;
+    padding: 3px 8px;
   }
-  .tracked { font-size: 10px; color: var(--ink-muted); margin: 7px 0 0; letter-spacing: 0.04em; }
+  .tracked { font-size: 10px; color: var(--ink-muted); margin: 9px 0 0; letter-spacing: 0.04em; }
+
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .price-from { font-size: 10px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .price { font-size: 17px; font-weight: 600; }
+  .was { font-size: 12px; color: var(--ink-muted); text-decoration: line-through; margin-left: 7px; }
+  .link { font-size: 10px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.09em; white-space: nowrap; }
 
   .section-head {
     grid-column: 1 / -1;
-    background: var(--bg);
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--ink-secondary);
-    padding: 16px 2px 8px;
+    font-family: "Marcellus", Georgia, serif;
+    font-size: 15px; letter-spacing: 0.06em;
+    color: var(--ink);
+    padding: 6px 0 4px;
+    border-bottom: 1px solid var(--border);
   }
+  .section-head:not(:first-child) { margin-top: 8px; }
 
-  .established {
-    font-size: 10px; letter-spacing: 0.06em; color: var(--ink-muted);
-    margin-left: 6px;
-  }
-
-  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 12px; }
-  .price-from { font-size: 11px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .price { font-size: 16px; font-weight: 600; }
-  .was { font-size: 12px; color: var(--ink-muted); text-decoration: line-through; margin-left: 7px; }
-  .link { font-size: 11px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
-
-  .empty { text-align: center; padding: 56px 20px; color: var(--ink-secondary); font-size: 14px; grid-column: 1 / -1; background: var(--surface); }
+  .empty { text-align: center; padding: 64px 20px; color: var(--ink-secondary); font-size: 14px; grid-column: 1 / -1; }
 
   footer {
     display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
-    border-top: 1px solid var(--border); padding-top: 16px; margin-top: 0;
+    border-top: 1px solid var(--border); padding-top: 18px; margin-top: 20px;
   }
   footer span { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.02em; }
 </style>
@@ -157,7 +150,7 @@
 
   <div id="feed"></div>
 
-  <footer style="margin-top: 22px;">
+  <footer>
     <span>Affiliate links — we may earn a commission</span>
     <span id="count"></span>
   </footer>
@@ -204,12 +197,19 @@ function renderCard(item) {
     sizesLine = shown.map(escapeHtml).join(' · ') + (extra > 0 ? ` +${extra}` : '');
   }
 
+  const thumbInner = item.photo
+    ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-empty'); this.remove();" />`
+    : '';
+
   a.innerHTML = `
-    ${item.photo ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.remove()" />` : ''}
+    <div class="thumb-wrap${item.photo ? '' : ' thumb-empty'}">
+      ${thumbInner}
+      <span class="stamp mono${item.price_dropped ? ' dropped' : ''}">-${item.discount_pct}%</span>
+    </div>
     <div class="card-body">
       <div class="meta-row">
-        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}${item.is_notable_brand ? '<span class="established">· established house</span>' : ''}</span>
-        <span class="stamp mono${item.price_dropped ? ' dropped' : ''}"><span class="pct">-${item.discount_pct}%</span></span>
+        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}</span>
+        ${item.is_notable_brand ? '<span class="established">Established house</span>' : ''}
       </div>
       <p class="title">${escapeHtml(fullTitle)}</p>
       ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
@@ -234,7 +234,6 @@ function render() {
   if (!items.length) {
     feed.innerHTML = '<p class="empty">Nothing here right now — check back soon.</p>';
   } else if (activeCategory === 'all') {
-    // Group by category so the combined view reads as sections, not a wall.
     const order = ['menswear', 'fragrance', 'watches'];
     const grouped = {};
     items.forEach(i => { (grouped[i.category] = grouped[i.category] || []).push(i); });
