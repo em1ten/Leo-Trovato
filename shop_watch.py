@@ -354,7 +354,12 @@ def main():
     def passes_threshold(item):
         threshold = min_discount_by_category.get(item["category"], min_discount)
         floor = min_price_by_category.get(item["category"], 0)
-        return item["discount_pct"] >= threshold and item["price_amount"] >= floor
+        # Floor checks the ORIGINAL price, not the discounted one. A £45 item
+        # marked down to £15 is exactly the kind of genuine markdown this site
+        # exists to surface - checking the sale price would filter it out for
+        # being a good deal, which is backwards. A £15 item that was always
+        # £15 is the one actually being screened for.
+        return item["discount_pct"] >= threshold and item["compare_at"] >= floor
 
     feed = [item for item in feed if passes_threshold(item)]
     feed.sort(key=lambda item: item["score"], reverse=True)
