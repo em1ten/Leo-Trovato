@@ -333,6 +333,7 @@ def main():
     notable_brands = config.get("notable_brands", {}).get("list", [])
     notable_brand_facts = config.get("notable_brands", {}).get("facts", {})
     min_price_by_category = config.get("min_price_by_category", {})
+    max_discount_pct = config.get("max_discount_pct", 85)
 
     feed = []
     errors = []
@@ -359,6 +360,11 @@ def main():
         # exists to surface - checking the sale price would filter it out for
         # being a good deal, which is backwards. A £15 item that was always
         # £15 is the one actually being screened for.
+        if item["discount_pct"] > max_discount_pct:
+            print(f"  ! implausible discount excluded: {item['title']} claims -{item['discount_pct']}% "
+                  f"(£{item['price_amount']} from £{item['compare_at']}) - likely miscoded price data "
+                  f"(pre-order deposits, stale RRPs) rather than a real deal")
+            return False
         return item["discount_pct"] >= threshold and item["compare_at"] >= floor
 
     feed = [item for item in feed if passes_threshold(item)]
