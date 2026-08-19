@@ -1,0 +1,43 @@
+{
+  "_comment": "Public deal tracker config. Each shop_watch entry needs a domain (must serve /products.json - Shopify only), a category, and an affiliate network name for later reference. affiliate_id is blank until real Awin/CJ/eBay Partner Network accounts are approved - the scanner runs fine without it, links just won't be tagged yet.",
+  "global_exclude": ["kids", "toy", "sample", "tester", "gift card", "gift set bundle"],
+  "shop_watches": [
+    {
+      "name": "Stuarts London",
+      "domain": "www.stuartslondon.com",
+      "category": "menswear",
+      "affiliate_network": "awin",
+      "affiliate_id": ""
+    },
+    {
+      "name": "Jeanstore",
+      "domain": "jeanstore.co.uk",
+      "category": "menswear",
+      "affiliate_network": "awin",
+      "affiliate_id": ""
+    },
+    {
+      "name": "Son of a Stag",
+      "domain": "sonofastag.com",
+      "category": "menswear",
+      "affiliate_network": "awin",
+      "affiliate_id": ""
+    },
+    {
+      "name": "Escentual",
+      "domain": "www.escentual.com",
+      "category": "fragrance",
+      "affiliate_network": "awin",
+      "affiliate_id": ""
+    },
+    {
+      "name": "Jura Watches",
+      "domain": "www.jurawatches.co.uk",
+      "category": "watches",
+      "affiliate_network": "awin",
+      "affiliate_id": ""
+    }
+  ],
+  "feed_size": 60,
+  "min_discount_pct": 20
+}

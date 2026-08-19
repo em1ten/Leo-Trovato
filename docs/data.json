@@ -1,0 +1,57 @@
+{
+  "generated_at": 1787126379,
+  "errors": [],
+  "feed": [
+    {
+      "id": "www.stuartslondon.com-101",
+      "title": "Aros Heavy Chino",
+      "brand": "Norse Projects",
+      "category": "menswear",
+      "shop": "Stuarts London",
+      "price_amount": 55.0,
+      "price": "55.00 GBP",
+      "discount_pct": 52,
+      "is_new": true,
+      "price_dropped": false,
+      "previous_price": null,
+      "photo": "https://x/1.jpg",
+      "url": "https://www.stuartslondon.com/products/aros-chino",
+      "note": "",
+      "score": 57
+    },
+    {
+      "id": "www.jurawatches.co.uk-303",
+      "title": "Spirit Zulu Time 39mm",
+      "brand": "Longines",
+      "category": "watches",
+      "shop": "Jura Watches",
+      "price_amount": 1850.0,
+      "price": "1850.00 GBP",
+      "discount_pct": 37,
+      "is_new": true,
+      "price_dropped": false,
+      "previous_price": null,
+      "photo": "https://x/3.jpg",
+      "url": "https://www.jurawatches.co.uk/products/spirit-zulu",
+      "note": "GMT, ceramic bezel \u2014 proper travel watch.",
+      "score": 42
+    },
+    {
+      "id": "www.escentual.com-202",
+      "title": "Oud Wood EDP 100ml",
+      "brand": "Tom Ford",
+      "category": "fragrance",
+      "shop": "Escentual",
+      "price_amount": 169.0,
+      "price": "169.00 GBP",
+      "discount_pct": 31,
+      "is_new": true,
+      "price_dropped": false,
+      "previous_price": null,
+      "photo": "https://x/2.jpg",
+      "url": "https://www.escentual.com/products/oud-wood",
+      "note": "",
+      "score": 36
+    }
+  ]
+}
