@@ -3,67 +3,68 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Leo Trovato — genuine markdowns on menswear, fragrance & watches</title>
+<title>Scour — genuine markdowns on menswear, fragrance & watches</title>
 <meta name="description" content="Genuine markdowns from authorised retailers. Menswear, fragrance and watches. No fakes, no inflated RRPs." />
-<meta name="theme-color" content="#f7f3ea" />
+<meta name="theme-color" content="#faf9f7" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #f7f3ea;
-    --surface: #fffdf8;
-    --border: #e2dbc9;
-    --border-hover: #c9bfa3;
-    --ink: #201c16;
-    --ink-secondary: #6b6252;
-    --ink-muted: #9c9280;
+    --bg: #faf9f7;
+    --ink: #141412;
+    --ink-secondary: #5c5a55;
+    --ink-muted: #9a9790;
+    --hairline: #e4e2dc;
     --accent: #6b2b2b;
-    --accent-tint: #f6e9e4;
+    --tag-bg: #141412;
+    --tag-text: #faf9f7;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .serif { font-family: "Bodoni Moda", Georgia, serif; }
+  .tabular { font-variant-numeric: tabular-nums; }
 
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 20px 80px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 56px 24px 96px; }
 
-  header { margin-bottom: 4px; padding-bottom: 26px; border-bottom: 1px solid var(--border); }
+  header { margin-bottom: 4px; }
   h1 {
-    font-family: "Marcellus", Georgia, serif;
-    font-size: 38px;
-    font-weight: 400;
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-size: 44px;
+    font-weight: 500;
+    font-style: italic;
     margin: 0;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.01em;
   }
-  .tagline { font-size: 13px; color: var(--ink-secondary); margin: 12px 0 6px; max-width: 46ch; line-height: 1.65; }
-  .updated { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .tagline { font-size: 13px; color: var(--ink-secondary); margin: 14px 0 6px; max-width: 44ch; line-height: 1.7; letter-spacing: 0.01em; }
+  .updated { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.12em; }
 
   nav.index {
-    display: flex; gap: 28px; flex-wrap: wrap;
-    margin: 28px 0 36px;
-    border-bottom: 1px solid var(--border);
+    display: flex; gap: 32px; flex-wrap: wrap;
+    margin: 40px 0 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ink);
   }
   .tab {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--ink-muted); cursor: pointer; user-select: none;
-    padding: 0 0 12px; border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
+    padding: 0 0 4px; border-bottom: 1px solid transparent;
     transition: color 150ms ease, border-color 150ms ease;
   }
   .tab:hover { color: var(--ink-secondary); }
-  .tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+  .tab:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+  .tab.active { color: var(--ink); border-bottom-color: var(--ink); }
 
-  #feed { display: grid; grid-template-columns: 1fr; gap: 36px 28px; }
+  #feed { display: grid; grid-template-columns: 1fr; gap: 56px 40px; }
   @media (min-width: 680px) { #feed { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 1020px) { #feed { grid-template-columns: 1fr 1fr 1fr; } }
+  @media (min-width: 1040px) { #feed { grid-template-columns: 1fr 1fr 1fr; } }
 
   .card {
     display: flex; flex-direction: column;
@@ -71,64 +72,63 @@
   }
   .thumb-wrap {
     position: relative; width: 100%; aspect-ratio: 4 / 5;
-    background: var(--surface); border: 1px solid var(--border);
-    overflow: hidden; margin-bottom: 16px;
+    background: #efeee9;
+    overflow: hidden; margin-bottom: 18px;
   }
   .thumb {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform 400ms ease;
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    display: block;
   }
-  .card:hover .thumb { transform: scale(1.03); }
-  .thumb-empty { width: 100%; height: 100%; }
+  .card:hover .thumb { transform: scale(1.025); }
 
-  .stamp {
-    position: absolute; top: 12px; right: 12px;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: var(--bg); border: 1.5px solid var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    transform: rotate(-6deg);
-    color: var(--accent); font-size: 13px; font-weight: 600;
+  .tag {
+    position: absolute; top: 0; left: 0;
+    background: var(--tag-bg); color: var(--tag-text);
+    font-size: 11px; letter-spacing: 0.05em;
+    padding: 6px 11px;
   }
-  .stamp.dropped { border-style: double; border-width: 3px; }
+  .tag.dropped { background: var(--accent); }
 
   .card-body { flex: 1; }
-  .meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 7px; }
-  .shop { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .established { font-size: 10px; letter-spacing: 0.04em; color: var(--ink-muted); }
+  .meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .shop { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .established { font-size: 11px; font-style: italic; color: var(--ink-muted); font-family: "Bodoni Moda", Georgia, serif; }
 
-  .title { font-family: "Marcellus", Georgia, serif; font-size: 19px; font-weight: 400; margin: 0 0 5px; line-height: 1.32; }
-  .note { font-size: 13px; color: var(--ink-secondary); margin: 5px 0 0; line-height: 1.55; }
-  .sizes { font-size: 11px; color: var(--ink-muted); margin: 10px 0 0; letter-spacing: 0.03em; }
+  .title { font-family: "Bodoni Moda", Georgia, serif; font-size: 20px; font-weight: 400; margin: 0 0 6px; line-height: 1.3; }
+  .note { font-size: 13px; color: var(--ink-secondary); margin: 6px 0 0; line-height: 1.6; }
+  .sizes { font-size: 11px; color: var(--ink-muted); margin: 12px 0 0; letter-spacing: 0.02em; }
 
   .lowflag {
-    display: inline-block; margin: 10px 0 0;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent); border: 1px solid var(--accent);
-    padding: 3px 8px;
+    display: inline-block; margin: 12px 0 0;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 2px; border-bottom: 1px solid var(--accent);
   }
-  .tracked { font-size: 10px; color: var(--ink-muted); margin: 9px 0 0; letter-spacing: 0.04em; }
+  .tracked { font-size: 10px; color: var(--ink-muted); margin: 10px 0 0; letter-spacing: 0.03em; }
 
-  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--hairline); }
   .price-from { font-size: 10px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .price { font-size: 17px; font-weight: 600; }
-  .was { font-size: 12px; color: var(--ink-muted); text-decoration: line-through; margin-left: 7px; }
-  .link { font-size: 10px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.09em; white-space: nowrap; }
+  .price { font-size: 18px; font-weight: 500; }
+  .was { font-size: 12px; color: var(--ink-muted); text-decoration: line-through; margin-left: 8px; }
+  .link { font-size: 10px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
 
   .section-head {
     grid-column: 1 / -1;
-    font-family: "Marcellus", Georgia, serif;
-    font-size: 15px; letter-spacing: 0.06em;
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
     color: var(--ink);
-    padding: 6px 0 4px;
-    border-bottom: 1px solid var(--border);
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--ink);
   }
-  .section-head:not(:first-child) { margin-top: 8px; }
+  .section-head:not(:first-child) { margin-top: 12px; }
 
-  .empty { text-align: center; padding: 64px 20px; color: var(--ink-secondary); font-size: 14px; grid-column: 1 / -1; }
+  .empty { text-align: center; padding: 72px 20px; color: var(--ink-secondary); font-size: 14px; grid-column: 1 / -1; }
 
   footer {
     display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
-    border-top: 1px solid var(--border); padding-top: 18px; margin-top: 20px;
+    border-top: 1px solid var(--hairline); padding-top: 20px; margin-top: 28px;
   }
   footer span { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.02em; }
 </style>
@@ -136,7 +136,7 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Leo Trovato</h1>
+    <h1>Scour</h1>
     <p class="tagline">Prices watched over time at authorised retailers — so a markdown is measured against what an item actually sold for, not an invented RRP.</p>
     <span class="updated" id="updated"></span>
   </header>
@@ -188,7 +188,8 @@ function renderCard(item) {
   a.target = '_blank';
   a.rel = 'noopener noreferrer sponsored';
 
-  const fullTitle = item.brand ? item.brand + ' ' + item.title : item.title;
+  const titleStartsWithBrand = item.brand && item.title.toLowerCase().startsWith(item.brand.toLowerCase());
+  const fullTitle = (item.brand && !titleStartsWithBrand) ? item.brand + ' ' + item.title : item.title;
 
   let sizesLine = '';
   if (item.sizes && item.sizes.length) {
@@ -198,13 +199,13 @@ function renderCard(item) {
   }
 
   const thumbInner = item.photo
-    ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-empty'); this.remove();" />`
+    ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.remove();" />`
     : '';
 
   a.innerHTML = `
-    <div class="thumb-wrap${item.photo ? '' : ' thumb-empty'}">
+    <div class="thumb-wrap">
       ${thumbInner}
-      <span class="stamp mono${item.price_dropped ? ' dropped' : ''}">-${item.discount_pct}%</span>
+      <span class="tag tabular${item.price_dropped ? ' dropped' : ''}">−${item.discount_pct}%</span>
     </div>
     <div class="card-body">
       <div class="meta-row">
@@ -213,12 +214,12 @@ function renderCard(item) {
       </div>
       <p class="title">${escapeHtml(fullTitle)}</p>
       ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
-      ${sizesLine ? `<p class="sizes mono">${sizesLine}</p>` : ''}
+      ${sizesLine ? `<p class="sizes tabular">${sizesLine}</p>` : ''}
       ${item.at_observed_low ? '<span class="lowflag">Lowest we\'ve tracked</span>' : ''}
-      ${!item.at_observed_low && item.has_history && item.below_observed_high >= 10 ? `<p class="tracked mono">${item.below_observed_high}% below its usual price here</p>` : ''}
-      ${item.has_history && item.observed_low && !item.at_observed_low ? `<p class="tracked mono">Tracked low ${fmtMoney(item.observed_low)} · ${item.observations} checks</p>` : ''}
+      ${!item.at_observed_low && item.has_history && item.below_observed_high >= 10 ? `<p class="tracked tabular">${item.below_observed_high}% below its usual price here</p>` : ''}
+      ${item.has_history && item.observed_low && !item.at_observed_low ? `<p class="tracked tabular">Tracked low ${fmtMoney(item.observed_low)} · ${item.observations} checks</p>` : ''}
       <div class="price-row">
-        <span class="mono">${item.price_is_from ? '<span class="price-from">From</span>' : ''}<span class="price">${fmtMoney(item.price_amount)}</span>${item.compare_at ? `<span class="was">${fmtMoney(item.compare_at)}</span>` : ''}</span>
+        <span class="tabular">${item.price_is_from ? '<span class="price-from">From</span>' : ''}<span class="price">${fmtMoney(item.price_amount)}</span>${item.compare_at ? `<span class="was">${fmtMoney(item.compare_at)}</span>` : ''}</span>
         <span class="link">View →</span>
       </div>
     </div>
