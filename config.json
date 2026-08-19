@@ -52,7 +52,7 @@
     "watches": 10
   },
   "min_price_by_category": {
-    "_comment": "The items that actually read as clutter weren't from bad brands - they were low absolute price points (a £10 cap, an £11.60 tee). This filters those out regardless of brand, rather than banning brands like Dickies or Carhartt that are genuinely respected, just not premium-priced.",
+    "_comment": "Checks the ORIGINAL price, not the discounted one - a steep genuine markdown on a decent item (£45 cap down to £15) shouldn't be filtered out for being a good deal. This screens out items that were always cheap, not items that have become cheap through a real discount.",
     "menswear": 25,
     "fragrance": 25,
     "watches": 100
