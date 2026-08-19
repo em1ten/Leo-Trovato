@@ -6,7 +6,10 @@
     "sample",
     "tester",
     "gift card",
-    "gift set bundle"
+    "gift set bundle",
+    "pre-order",
+    "preorder",
+    "pre order"
   ],
   "shop_watches": [
     {
@@ -51,6 +54,7 @@
   "min_discount_pct_by_category": {
     "watches": 10
   },
+  "max_discount_pct": 80,
   "min_price_by_category": {
     "_comment": "Checks the ORIGINAL price, not the discounted one - a steep genuine markdown on a decent item (£45 cap down to £15) shouldn't be filtered out for being a good deal. This screens out items that were always cheap, not items that have become cheap through a real discount.",
     "menswear": 25,
