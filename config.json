@@ -51,5 +51,28 @@
   "min_discount_pct_by_category": {
     "watches": 10
   },
-  "category_floor": 5
+  "category_floor": 5,
+  "category_must_include_any": {
+    "fragrance": [
+      "eau de",
+      "parfum",
+      "cologne",
+      "fragrance",
+      "aftershave",
+      "eau fraiche"
+    ]
+  },
+  "notable_brands": {
+    "_comment": "A modest score boost, not a filter - everyday brands like Dickies or Levi's stay in the feed regardless. This just helps genuine heritage/craft reputation rise a little, since that reputation is a real signal that isn't captured by price history or discount percentage. Researched, not guessed - see conversation history for sourcing.",
+    "list": [
+      "Pringle of Scotland", "Aquascutum", "Belstaff", "Dents", "Barbour",
+      "Carhartt WIP", "Loake", "Cheaney", "Edwin", "Nudie Jeans",
+      "Naked & Famous", "Naked & Famous Denim", "Norse Projects", "Fred Perry",
+      "Novesta", "NN07",
+      "Guerlain", "Givenchy", "Chanel", "Dior", "Diptyque", "Jo Malone",
+      "Le Labo", "Maison Margiela", "Acqua di Parma", "Creed", "Tom Ford",
+      "Longines", "Omega", "Tudor", "Tag Heuer", "IWC", "Breitling",
+      "Zenith", "Oris", "Nomos", "Cartier"
+    ]
+  }
 }
