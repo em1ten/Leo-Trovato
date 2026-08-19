@@ -1,14 +1,47 @@
+
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Leo Trovato</title>
+<title>Leo Trovato — genuine markdowns on menswear, fragrance & watches</title>
+<meta name="description" content="Genuine markdowns from authorised retailers. Menswear, fragrance and watches. No fakes, no inflated RRPs." />
+<meta name="theme-color" content="#faf9f6" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #faf9f6;
     --surface: #ffffff;
     --border: #e5e2da;
+    --border-hover: #cbc7bc;
     --text: #1a1a18;
     --text-secondary: #6b6862;
     --text-muted: #9a968c;
@@ -24,42 +57,64 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 560px; margin: 0 auto; padding: 20px 16px 60px; }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 28px 16px 60px; }
+ 
   header { margin-bottom: 4px; }
-  h1 { font-size: 21px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
-  .tagline { font-size: 13px; color: var(--text-secondary); margin: 4px 0 16px; }
+  h1 {
+    font-family: "Marcellus", Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  h1 a { color: inherit; text-decoration: none; }
+  .tagline { font-size: 13px; color: var(--text-secondary); margin: 6px 0 14px; max-width: 40ch; line-height: 1.5; }
   .updated { font-size: 12px; color: var(--text-muted); }
-
-  .pills { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 18px; }
+ 
+  .pills { display: flex; gap: 6px; flex-wrap: wrap; margin: 16px 0 20px; }
   .pill {
-    font-size: 13px; padding: 6px 13px; border-radius: 16px;
+    font-size: 13px; padding: 6px 14px; border-radius: 16px;
     border: 1px solid var(--border); color: var(--text-secondary);
     background: var(--surface); cursor: pointer; user-select: none;
+    transition: border-color 120ms ease;
   }
+  .pill:hover { border-color: var(--border-hover); }
+  .pill:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
   .pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-
+ 
   .card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
-    display: block; text-decoration: none; color: inherit;
+    display: flex; gap: 14px; align-items: flex-start;
+    text-decoration: none; color: inherit;
+    transition: border-color 120ms ease;
   }
-  .card:hover { border-color: #cfccc2; }
-  .meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .shop { font-size: 12px; color: var(--text-muted); }
-  .badge { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+  .card:hover { border-color: var(--border-hover); }
+  .card:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+  .card-body { flex: 1; min-width: 0; }
+  .thumb {
+    width: 88px; height: 88px; flex-shrink: 0;
+    border-radius: 8px; border: 1px solid var(--border);
+    object-fit: cover; background: var(--bg);
+  }
+  @media (max-width: 420px) { .thumb { width: 72px; height: 72px; } }
+ 
+  .meta-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .shop { font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .badge { font-size: 12px; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
   .badge.discount { background: var(--drop); color: var(--drop-text); }
-  .title { font-size: 15px; font-weight: 600; margin: 0 0 2px; }
-  .note { font-size: 13px; color: var(--text-secondary); margin: 0 0 10px; }
-  .price-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .title { font-size: 15px; font-weight: 600; margin: 0 0 2px; line-height: 1.35; }
+  .note { font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; line-height: 1.45; }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 10px; }
   .price { font-size: 17px; font-weight: 600; }
   .was { font-size: 13px; color: var(--text-muted); text-decoration: line-through; margin-left: 6px; }
-  .link { font-size: 13px; color: var(--text); }
-
-  .empty { text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 14px; }
-
+  .link { font-size: 13px; color: var(--text); white-space: nowrap; }
+ 
+  .empty { text-align: center; padding: 48px 20px; color: var(--text-secondary); font-size: 14px; }
+ 
   footer {
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid var(--border); padding-top: 14px; margin-top: 18px;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    border-top: 1px solid var(--border); padding-top: 14px; margin-top: 22px;
   }
   footer span { font-size: 12px; color: var(--text-muted); }
 </style>
@@ -67,96 +122,110 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Leo Trovato</h1>
+    <h1><a href="./">Leo Trovato</a></h1>
     <p class="tagline">Genuine markdowns from authorised retailers. No fakes, no inflated RRPs.</p>
     <span class="updated" id="updated"></span>
   </header>
-
+ 
   <div class="pills" id="pills">
-    <span class="pill active" data-cat="all">All</span>
-    <span class="pill" data-cat="menswear">Menswear</span>
-    <span class="pill" data-cat="fragrance">Fragrance</span>
-    <span class="pill" data-cat="watches">Watches</span>
+    <span class="pill active" data-cat="all" tabindex="0">All</span>
+    <span class="pill" data-cat="menswear" tabindex="0">Menswear</span>
+    <span class="pill" data-cat="fragrance" tabindex="0">Fragrance</span>
+    <span class="pill" data-cat="watches" tabindex="0">Watches</span>
   </div>
-
+ 
   <div id="feed"></div>
-
+ 
   <footer>
-    <span>Affiliate links - we may earn a commission</span>
+    <span>Affiliate links — we may earn a commission</span>
     <span id="count"></span>
   </footer>
 </div>
-
+ 
 <script>
 let allItems = [];
 let activeCategory = 'all';
-
+ 
 function fmtMoney(n) {
   return '£' + Number(n).toFixed(2).replace(/\.00$/, '');
 }
-
+ 
 function timeAgo(unixSeconds) {
   const mins = Math.round((Date.now() / 1000 - unixSeconds) / 60);
   if (mins < 60) return `updated ${mins} min ago`;
   const hours = Math.round(mins / 60);
   return `updated ${hours}h ago`;
 }
-
+ 
+function categoryLabel(cat) {
+  return { menswear: 'Menswear', fragrance: 'Fragrance', watches: 'Watches' }[cat] || cat;
+}
+ 
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : str;
+  return div.innerHTML;
+}
+ 
 function renderCard(item) {
   const a = document.createElement('a');
   a.className = 'card';
   a.href = item.url;
   a.target = '_blank';
   a.rel = 'noopener noreferrer sponsored';
-
+ 
   const badgeText = item.price_dropped ? `-${item.discount_pct}% · price drop` : `-${item.discount_pct}%`;
-
+  const fullTitle = item.brand ? item.brand + ' ' + item.title : item.title;
+ 
   a.innerHTML = `
-    <div class="meta-row">
-      <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}</span>
-      <span class="badge discount">${badgeText}</span>
+    <div class="card-body">
+      <div class="meta-row">
+        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}</span>
+        <span class="badge discount">${badgeText}</span>
+      </div>
+      <p class="title">${escapeHtml(fullTitle)}</p>
+      ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
+      <div class="price-row">
+        <span><span class="price">${fmtMoney(item.price_amount)}</span>${item.previous_price ? `<span class="was">${fmtMoney(item.previous_price)}</span>` : ''}</span>
+        <span class="link">View deal →</span>
+      </div>
     </div>
-    <p class="title">${escapeHtml(item.brand ? item.brand + ' ' + item.title : item.title)}</p>
-    ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
-    <div class="price-row">
-      <span><span class="price">${fmtMoney(item.price_amount)}</span>${item.previous_price ? `<span class="was">${fmtMoney(item.previous_price)}</span>` : ''}</span>
-      <span class="link">View deal →</span>
-    </div>
+    ${item.photo ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.remove()" />` : ''}
   `;
   return a;
 }
-
-function categoryLabel(cat) {
-  return { menswear: 'Menswear', fragrance: 'Fragrance', watches: 'Watches' }[cat] || cat;
-}
-
-function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str == null ? '' : str;
-  return div.innerHTML;
-}
-
+ 
 function render() {
   const feed = document.getElementById('feed');
   feed.innerHTML = '';
   const items = activeCategory === 'all' ? allItems : allItems.filter(i => i.category === activeCategory);
   if (!items.length) {
-    feed.innerHTML = '<p class="empty">Nothing here right now - check back soon.</p>';
+    feed.innerHTML = '<p class="empty">Nothing here right now — check back soon.</p>';
   } else {
     items.forEach(item => feed.appendChild(renderCard(item)));
   }
   document.getElementById('count').textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
 }
-
-document.getElementById('pills').addEventListener('click', (e) => {
-  const pill = e.target.closest('.pill');
-  if (!pill) return;
+ 
+function activatePill(pill) {
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   pill.classList.add('active');
   activeCategory = pill.dataset.cat;
   render();
+}
+ 
+document.getElementById('pills').addEventListener('click', (e) => {
+  const pill = e.target.closest('.pill');
+  if (pill) activatePill(pill);
 });
-
+document.getElementById('pills').addEventListener('keydown', (e) => {
+  const pill = e.target.closest('.pill');
+  if (pill && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    activatePill(pill);
+  }
+});
+ 
 fetch('data.json?t=' + Date.now())
   .then(r => r.json())
   .then(data => {
@@ -165,8 +234,21 @@ fetch('data.json?t=' + Date.now())
     render();
   })
   .catch(() => {
-    document.getElementById('feed').innerHTML = '<p class="empty">Feed not available yet - the first scan hasn\'t run.</p>';
+    document.getElementById('feed').innerHTML = '<p class="empty">Feed not available yet — the first scan hasn\'t run.</p>';
   });
 </script>
 </body>
 </html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
