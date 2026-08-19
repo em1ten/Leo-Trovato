@@ -161,7 +161,21 @@ def brand_is_notable(vendor, notable_brands):
     return any(vendor_lower == b.lower() for b in notable_brands)
 
 
-def build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands=None):
+def brand_fact(vendor, brand_facts):
+    """A generic, verified one-liner about the brand itself - not the specific
+    item. Applies automatically to every product from that vendor, so it
+    doesn't need rewriting as the feed rotates. Manual notes.json entries
+    take priority when a specific item genuinely needs its own line."""
+    if not vendor or not brand_facts:
+        return ""
+    vendor_lower = vendor.strip().lower()
+    for name, fact in brand_facts.items():
+        if name.lower() == vendor_lower:
+            return fact
+    return ""
+
+
+def build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands=None, notable_brand_facts=None):
     if is_excluded(product, exclude_terms):
         return []
     if not is_relevant(product, must_include_any):
@@ -291,9 +305,10 @@ def build_cards(product, shop, exclude_terms, must_include_any, price_history, n
         "is_notable_brand": is_notable_brand,
         "photo": photo,
         "url": product_url,
-        # Manual curation lookup, keyed by item_id in notes.json. Blank
-        # by default - not every card needs a line, see README.
-        "note": notes.get(item_id, ""),
+        # Manual per-item note wins if one exists. Otherwise fall back to a
+        # generic, verified brand fact (if we have one) so items don't need
+        # rewriting every time the feed rotates.
+        "note": notes.get(item_id) or brand_fact(product.get("vendor", ""), notable_brand_facts),
         "score": score,
     }]
 
@@ -316,6 +331,8 @@ def main():
     category_exclude = config.get("category_exclude", {})
     category_must_include_any = config.get("category_must_include_any", {})
     notable_brands = config.get("notable_brands", {}).get("list", [])
+    notable_brand_facts = config.get("notable_brands", {}).get("facts", {})
+    min_price_by_category = config.get("min_price_by_category", {})
 
     feed = []
     errors = []
@@ -332,11 +349,12 @@ def main():
             continue
 
         for product in products:
-            feed.extend(build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands))
+            feed.extend(build_cards(product, shop, exclude_terms, must_include_any, price_history, notes, notable_brands, notable_brand_facts))
 
     def passes_threshold(item):
         threshold = min_discount_by_category.get(item["category"], min_discount)
-        return item["discount_pct"] >= threshold
+        floor = min_price_by_category.get(item["category"], 0)
+        return item["discount_pct"] >= threshold and item["price_amount"] >= floor
 
     feed = [item for item in feed if passes_threshold(item)]
     feed.sort(key=lambda item: item["score"], reverse=True)
