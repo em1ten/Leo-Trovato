@@ -51,6 +51,12 @@
   "min_discount_pct_by_category": {
     "watches": 10
   },
+  "min_price_by_category": {
+    "_comment": "The items that actually read as clutter weren't from bad brands - they were low absolute price points (a £10 cap, an £11.60 tee). This filters those out regardless of brand, rather than banning brands like Dickies or Carhartt that are genuinely respected, just not premium-priced.",
+    "menswear": 25,
+    "fragrance": 25,
+    "watches": 100
+  },
   "category_floor": 5,
   "category_must_include_any": {
     "fragrance": [
@@ -63,7 +69,7 @@
     ]
   },
   "notable_brands": {
-    "_comment": "A modest score boost, not a filter - everyday brands like Dickies or Levi's stay in the feed regardless. This just helps genuine heritage/craft reputation rise a little, since that reputation is a real signal that isn't captured by price history or discount percentage. Researched, not guessed - see conversation history for sourcing.",
+    "_comment": "The score boost applies to the whole list below. Auto-generated brand notes only fire for entries in 'facts', which are deliberately a smaller subset - only brands with a fact actually checked against a source, not guessed. Add more as they're verified; per-item overrides always take priority and live in notes.json.",
     "list": [
       "Pringle of Scotland", "Aquascutum", "Belstaff", "Dents", "Barbour",
       "Carhartt WIP", "Loake", "Cheaney", "Edwin", "Nudie Jeans",
@@ -73,6 +79,15 @@
       "Le Labo", "Maison Margiela", "Acqua di Parma", "Creed", "Tom Ford",
       "Longines", "Omega", "Tudor", "Tag Heuer", "IWC", "Breitling",
       "Zenith", "Oris", "Nomos", "Cartier"
-    ]
+    ],
+    "facts": {
+      "Pringle of Scotland": "House pattern since the 1920s. Scottish cashmere.",
+      "Aquascutum": "British tailoring house, 1851.",
+      "Dents": "English glovemaker since 1777.",
+      "Novesta": "Same Slovak factory since the 1930s.",
+      "NN07": "Danish. Considered basics.",
+      "Guerlain": "French perfume house since 1828.",
+      "Belstaff": "Built its name on waxed motorcycle jackets."
+    }
   }
 }
