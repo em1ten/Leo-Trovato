@@ -1,9 +1,9 @@
 {
-  "generated_at": 1787133737,
+  "generated_at": 1787139913,
   "errors": [
     {
       "shop": "Jura Watches",
-      "error": "500 Server Error: Internal Server Error for url: https://www.jurawatches.co.uk/products.json?limit=250&page=4"
+      "error": "500 Server Error: Internal Server Error for url: https://www.jurawatches.co.uk/products.json?limit=250&page=3"
     }
   ],
   "feed": [
@@ -15,14 +15,18 @@
       "shop": "Stuarts London",
       "price_amount": 29.0,
       "price": "29.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "IVORY WHITE / S"
+      ],
       "discount_pct": 72,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1759224385-31297100.png?v=1764418467",
       "url": "https://www.stuartslondon.com/products/colorful-standard-classic-merino-wool-crew-ivory-white",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "www.stuartslondon.com-10401041908059",
@@ -32,14 +36,18 @@
       "shop": "Stuarts London",
       "price_amount": 19.0,
       "price": "19.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "COFFEE BROWN / XL"
+      ],
       "discount_pct": 75,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 19.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/2000x2000_52.png?v=1775053132",
       "url": "https://www.stuartslondon.com/products/colorful-standard-organic-straight-leg-sweatpants-coffee-brown",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "jeanstore.co.uk-7462440337602",
@@ -49,14 +57,18 @@
       "shop": "Jeanstore",
       "price_amount": 28.5,
       "price": "28.50 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "W30 L34"
+      ],
       "discount_pct": 70,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 28.5,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/products/112322224_CF1_3-jpg-lowres-digital.jpg?v=1658496356",
       "url": "https://jeanstore.co.uk/products/lee-daren-zip-fly-regular-fit-mens-jeans-asphalt-rocker",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "jeanstore.co.uk-15019666211197",
@@ -66,14 +78,18 @@
       "shop": "Jeanstore",
       "price_amount": 38.7,
       "price": "38.70 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "XL"
+      ],
       "discount_pct": 70,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 38.7,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/i033402_whw_gd-st-01.jpg?v=1740393311",
       "url": "https://jeanstore.co.uk/products/edwin-trembley-jacket-whisper-white",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "jeanstore.co.uk-6773830484162",
@@ -83,14 +99,18 @@
       "shop": "Jeanstore",
       "price_amount": 19.0,
       "price": "19.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "W25 L32"
+      ],
       "discount_pct": 80,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 19.0,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/products/levi-s-womens-721-high-rise-skinny-jeans-long-shot-w25-l28-18882-023325xs-levi-s-jeans-29323862769858.jpg?v=1625100136",
       "url": "https://jeanstore.co.uk/products/levis\u00ae-womens-721-high-rise-skinny-jeans-long-shot",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "jeanstore.co.uk-14993173545341",
@@ -100,14 +120,18 @@
       "shop": "Jeanstore",
       "price_amount": 23.7,
       "price": "23.70 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "W32 L32"
+      ],
       "discount_pct": 70,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 23.7,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/DK0A4XYKK211-1_1_19.jpg?v=1738858051",
       "url": "https://jeanstore.co.uk/products/dickies-thomasville-loose-fit-mens-jeans-rinsed-blue-with-fade",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "jeanstore.co.uk-7822798815426",
@@ -117,14 +141,18 @@
       "shop": "Jeanstore",
       "price_amount": 23.7,
       "price": "23.70 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "UK 4"
+      ],
       "discount_pct": 70,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 23.7,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/100074451.jpg?v=1713283758",
       "url": "https://jeanstore.co.uk/products/reebok-classics-club-c-85-dark-green-white",
       "note": "",
-      "score": 75
+      "score": 70
     },
     {
       "id": "www.stuartslondon.com-10220234834267",
@@ -134,14 +162,18 @@
       "shop": "Stuarts London",
       "price_amount": 10.0,
       "price": "10.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Brown / M"
+      ],
       "discount_pct": 67,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 10.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/71641-1.jpg?v=1773917552",
       "url": "https://www.stuartslondon.com/products/dents-corduroy-flat-cap-brown",
       "note": "",
-      "score": 72
+      "score": 67
     },
     {
       "id": "www.stuartslondon.com-10474816930139",
@@ -151,65 +183,18 @@
       "shop": "Stuarts London",
       "price_amount": 15.0,
       "price": "15.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "LIGHT BLUE / O/S"
+      ],
       "discount_pct": 67,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 15.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_5fb36180-2c51-4ee3-a04c-ef97dc5861ca.jpg?v=1779099189",
       "url": "https://www.stuartslondon.com/products/cookman-cap-light-blue",
       "note": "",
-      "score": 72
-    },
-    {
-      "id": "www.stuartslondon.com-10220224774491",
-      "title": "Portuguese Flannel Terra Shirt - Multi",
-      "brand": "Portuguese Flannel",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 39.0,
-      "price": "39.00 GBP",
-      "discount_pct": 64,
-      "is_new": true,
-      "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1757428042-26464100.jpg?v=1764418284",
-      "url": "https://www.stuartslondon.com/products/portuguese-flannel-terra-shirt-multi",
-      "note": "",
-      "score": 69
-    },
-    {
-      "id": "www.stuartslondon.com-10220275597659",
-      "title": "Carhartt WIP Tigan Shirt Jac - Black Rigid",
-      "brand": "Carhartt WIP",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 49.0,
-      "price": "49.00 GBP",
-      "discount_pct": 64,
-      "is_new": true,
-      "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762508207-72544800.jpg?v=1764422393",
-      "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-black-rigid",
-      "note": "",
-      "score": 69
-    },
-    {
-      "id": "www.stuartslondon.com-10220275564891",
-      "title": "Carhartt WIP Tigan Shirt Jac - Blue Rigid",
-      "brand": "Carhartt WIP",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 49.0,
-      "price": "49.00 GBP",
-      "discount_pct": 64,
-      "is_new": true,
-      "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762507792-82690000.jpg?v=1764422392",
-      "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-blue-rigid",
-      "note": "",
-      "score": 69
+      "score": 67
     },
     {
       "id": "www.escentual.com-15188909719876",
@@ -219,14 +204,18 @@
       "shop": "Escentual",
       "price_amount": 13.0,
       "price": "13.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Gift Set"
+      ],
       "discount_pct": 64,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 13.0,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/bareMineralsReadySetGlowComplexionDuoGiftSet.png?v=1756734724",
       "url": "https://www.escentual.com/products/bareminerals-complexion-duo-gift-set",
       "note": "",
-      "score": 69
+      "score": 64
     },
     {
       "id": "www.escentual.com-15206954402116",
@@ -236,14 +225,86 @@
       "shop": "Escentual",
       "price_amount": 21.2,
       "price": "21.20 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "30ml"
+      ],
       "discount_pct": 64,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 21.2,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/Narciso_Rodriguez_For_Her_Eau_de_Toilette_Spray_30ml_Gift_Set_c454be5b-5da2-42b9-86ce-cc62b51f99c4.png?v=1778154144",
       "url": "https://www.escentual.com/products/narciso-rodriguez-for-her-eau-de-toilette-spray-30ml-gift-set",
       "note": "",
-      "score": 69
+      "score": 64
+    },
+    {
+      "id": "www.stuartslondon.com-10220224774491",
+      "title": "Portuguese Flannel Terra Shirt - Multi",
+      "brand": "Portuguese Flannel",
+      "category": "menswear",
+      "shop": "Stuarts London",
+      "price_amount": 39.0,
+      "price": "39.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "MULTI / S"
+      ],
+      "discount_pct": 64,
+      "is_new": false,
+      "price_dropped": false,
+      "previous_price": 39.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1757428042-26464100.jpg?v=1764418284",
+      "url": "https://www.stuartslondon.com/products/portuguese-flannel-terra-shirt-multi",
+      "note": "",
+      "score": 64
+    },
+    {
+      "id": "www.stuartslondon.com-10220275597659",
+      "title": "Carhartt WIP Tigan Shirt Jac - Black Rigid",
+      "brand": "Carhartt WIP",
+      "category": "menswear",
+      "shop": "Stuarts London",
+      "price_amount": 49.0,
+      "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "BLACK RIGID / S",
+        "BLACK RIGID / M",
+        "BLACK RIGID / L",
+        "BLACK RIGID / XL"
+      ],
+      "discount_pct": 64,
+      "is_new": false,
+      "price_dropped": false,
+      "previous_price": 49.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762508207-72544800.jpg?v=1764422393",
+      "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-black-rigid",
+      "note": "",
+      "score": 64
+    },
+    {
+      "id": "www.stuartslondon.com-10220275564891",
+      "title": "Carhartt WIP Tigan Shirt Jac - Blue Rigid",
+      "brand": "Carhartt WIP",
+      "category": "menswear",
+      "shop": "Stuarts London",
+      "price_amount": 49.0,
+      "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "BLUE RIGID / S",
+        "BLUE RIGID / M",
+        "BLUE RIGID / XL"
+      ],
+      "discount_pct": 64,
+      "is_new": false,
+      "price_dropped": false,
+      "previous_price": 49.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762507792-82690000.jpg?v=1764422392",
+      "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-blue-rigid",
+      "note": "",
+      "score": 64
     },
     {
       "id": "www.stuartslondon.com-10396597191003",
@@ -253,14 +314,19 @@
       "shop": "Stuarts London",
       "price_amount": 109.0,
       "price": "109.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "CLUB CHECK / M",
+        "CLUB CHECK / L"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 109.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/12_8cfa3e66-a997-40bc-b6a8-e7b38f621b0e.jpg?v=1774366026",
       "url": "https://www.stuartslondon.com/products/aquascutum-shell-sp-overshirt-club-check",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10395462959451",
@@ -270,14 +336,19 @@
       "shop": "Stuarts London",
       "price_amount": 29.0,
       "price": "29.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "MIST / 30",
+        "MIST / 36"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/5_82e5f2cb-7fd1-49e0-b885-f349543329d2.jpg?v=1774280772",
       "url": "https://www.stuartslondon.com/products/barbour-mordey-chino-short-mist",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10395462861147",
@@ -287,14 +358,18 @@
       "shop": "Stuarts London",
       "price_amount": 29.0,
       "price": "29.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "NAVY / 30"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_8c084a1e-83be-4647-b052-df22584ac4bb.jpg?v=1774279772",
       "url": "https://www.stuartslondon.com/products/barbour-mordey-chino-short-navy",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379561009499",
@@ -304,14 +379,20 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "OPTICAL WHITE / S",
+        "OPTICAL WHITE / L",
+        "OPTICAL WHITE / XL"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771510198-91652300.jpg?v=1773334305",
       "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-optical-white",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379560911195",
@@ -321,14 +402,18 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "DUSTY OLIVE / S"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771509975-02897600.jpg?v=1773334306",
       "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-dusty-olive",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558879579",
@@ -338,14 +423,19 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "PERF GREEN / S",
+        "PERF GREEN / M"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771256189-83978500.jpg?v=1773334209",
       "url": "https://www.stuartslondon.com/products/far-afield-clifford-open-knit-polo-perf-green",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558846811",
@@ -355,14 +445,19 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "PERF BLUE / S",
+        "PERF BLUE / L"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771256388-53614300.jpg?v=1773334207",
       "url": "https://www.stuartslondon.com/products/far-afield-clifford-open-knit-polo-perf-blue",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558814043",
@@ -372,14 +467,19 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "NAVY/SAND / S",
+        "NAVY/SAND / M"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771325113-01614000.jpg?v=1773334205",
       "url": "https://www.stuartslondon.com/products/far-afield-benny-knitted-polo-navy-sand",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558748507",
@@ -389,14 +489,20 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "NAVY / S",
+        "NAVY / M",
+        "NAVY / XL"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771325360-98846900.jpg?v=1773334204",
       "url": "https://www.stuartslondon.com/products/far-afield-zigger-knitted-shirt-navy",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558650203",
@@ -406,14 +512,19 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "RED/SAND / S",
+        "RED/SAND / XL"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771255672-66118600.jpg?v=1773334197",
       "url": "https://www.stuartslondon.com/products/far-afield-velzy-helio-stripe-knit-shirt-red-sand",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379558617435",
@@ -423,14 +534,18 @@
       "shop": "Stuarts London",
       "price_amount": 35.0,
       "price": "35.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "BLUE/SAND / S"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 35.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771255849-39375800.jpg?v=1773334196",
       "url": "https://www.stuartslondon.com/products/far-afield-velzy-helio-stripe-knit-shirt-blue-sand",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379557699931",
@@ -440,14 +555,18 @@
       "shop": "Stuarts London",
       "price_amount": 29.0,
       "price": "29.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "VESUVIUS / 38"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1770985472-25717500.jpg?v=1773334150",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-craft-pant-vesuvius",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10379549606235",
@@ -457,14 +576,20 @@
       "shop": "Stuarts London",
       "price_amount": 29.0,
       "price": "29.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "LEATHER / 31",
+        "LEATHER / 32",
+        "LEATHER / 33"
+      ],
       "discount_pct": 63,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1768818047-21027000.jpg?v=1773333814",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-craft-pant-leather",
       "note": "",
-      "score": 68
+      "score": 63
     },
     {
       "id": "www.stuartslondon.com-10441492627803",
@@ -474,14 +599,25 @@
       "shop": "Stuarts London",
       "price_amount": 49.0,
       "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "TOBACCO / 7",
+        "TOBACCO / 7.5",
+        "TOBACCO / 8",
+        "TOBACCO / 8.5",
+        "TOBACCO / 9",
+        "TOBACCO / 9.5",
+        "TOBACCO / 10",
+        "TOBACCO / 11"
+      ],
       "discount_pct": 62,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 49.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/7_eebb9b2f-f717-42bf-96e6-10c18c7193f0.jpg?v=1776674866",
       "url": "https://www.stuartslondon.com/products/karhu-x-engineered-garments-mestari-slip-on-tobacco",
       "note": "",
-      "score": 67
+      "score": 62
     },
     {
       "id": "www.stuartslondon.com-10441492824411",
@@ -491,14 +627,22 @@
       "shop": "Stuarts London",
       "price_amount": 49.0,
       "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "CHOCOLATE / 7",
+        "CHOCOLATE / 7.5",
+        "CHOCOLATE / 8",
+        "CHOCOLATE / 9",
+        "CHOCOLATE / 10.5"
+      ],
       "discount_pct": 62,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 49.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_7d30d224-a004-4c21-953b-78101acca127.jpg?v=1776674266",
       "url": "https://www.stuartslondon.com/products/karhu-x-engineered-garments-mestari-slip-on-chocolate",
       "note": "",
-      "score": 67
+      "score": 62
     },
     {
       "id": "www.stuartslondon.com-10379568644443",
@@ -508,14 +652,20 @@
       "shop": "Stuarts London",
       "price_amount": 295.0,
       "price": "295.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "DARK SAND / S",
+        "DARK SAND / M",
+        "DARK SAND / L"
+      ],
       "discount_pct": 62,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 295.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/46_f318a22a-97b7-4a56-a3a3-7da7006afd84.jpg?v=1776939501",
       "url": "https://www.stuartslondon.com/products/belstaff-maymark-overshirt-dark-sand",
       "note": "",
-      "score": 67
+      "score": 62
     },
     {
       "id": "www.stuartslondon.com-10379565695323",
@@ -525,14 +675,18 @@
       "shop": "Stuarts London",
       "price_amount": 39.0,
       "price": "39.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Green / S"
+      ],
       "discount_pct": 61,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772466793-35244200.jpg?v=1773334539",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-reno-shirt-jac-green",
       "note": "",
-      "score": 66
+      "score": 61
     },
     {
       "id": "www.stuartslondon.com-10379546001755",
@@ -542,14 +696,18 @@
       "shop": "Stuarts London",
       "price_amount": 49.0,
       "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "KHAKI GREEN / UK 7"
+      ],
       "discount_pct": 61,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 49.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766487745-63178400.jpg?v=1773333670",
       "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-khaki-green",
       "note": "",
-      "score": 66
+      "score": 61
     },
     {
       "id": "www.stuartslondon.com-10379545903451",
@@ -559,14 +717,18 @@
       "shop": "Stuarts London",
       "price_amount": 49.0,
       "price": "49.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "BEIGE / UK 9"
+      ],
       "discount_pct": 61,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 49.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766489412-91688200.jpg?v=1773333665",
       "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-brown-67352",
       "note": "",
-      "score": 66
+      "score": 61
     },
     {
       "id": "www.stuartslondon.com-10379590762843",
@@ -576,14 +738,18 @@
       "shop": "Stuarts London",
       "price_amount": 129.0,
       "price": "129.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "CAMEL / S"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 129.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765372159-30518000.jpg?v=1773334808",
       "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-camel",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "www.stuartslondon.com-10379590730075",
@@ -593,14 +759,18 @@
       "shop": "Stuarts London",
       "price_amount": 129.0,
       "price": "129.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "BLUE / S"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 129.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765367435-62319200.jpg?v=1773334808",
       "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-blue",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "www.stuartslondon.com-10220525158747",
@@ -610,14 +780,18 @@
       "shop": "Stuarts London",
       "price_amount": 59.0,
       "price": "59.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "HAMILTON BROWN / S"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 59.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1692199415-52524100.jpg?v=1764458792",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-classic-vest-brown",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "jeanstore.co.uk-7461057134786",
@@ -627,14 +801,18 @@
       "shop": "Jeanstore",
       "price_amount": 34.0,
       "price": "34.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "W31 L34"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 34.0,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/products/000000000112126502_1.jpg?v=1658491016",
       "url": "https://jeanstore.co.uk/products/wrangler-texas-slim-mens-jeans-lucky-star",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "jeanstore.co.uk-7964176777410",
@@ -644,14 +822,18 @@
       "shop": "Jeanstore",
       "price_amount": 38.0,
       "price": "38.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "W31 L34"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 38.0,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/112342283_1.jpg?v=1720019666",
       "url": "https://jeanstore.co.uk/products/lee-oscar-relaxed-tapered-mens-jeans-black-star",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "jeanstore.co.uk-15125448556925",
@@ -661,14 +843,18 @@
       "shop": "Jeanstore",
       "price_amount": 11.6,
       "price": "11.60 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "S"
+      ],
       "discount_pct": 60,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 11.6,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/CS1001-TRSE_1.jpg?v=1748428120",
       "url": "https://jeanstore.co.uk/products/colorful-standard-classic-organic-tee-tropical-sea",
       "note": "",
-      "score": 65
+      "score": 60
     },
     {
       "id": "www.stuartslondon.com-10220225233243",
@@ -678,14 +864,18 @@
       "shop": "Stuarts London",
       "price_amount": 89.0,
       "price": "89.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "GREY / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 89.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1757429435-74524700.jpg?v=1764418318",
       "url": "https://www.stuartslondon.com/products/portuguese-flannel-pleated-wool-trousers-grey",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10220269699419",
@@ -695,14 +885,18 @@
       "shop": "Stuarts London",
       "price_amount": 59.0,
       "price": "59.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Brown / Size 3 / UK Size  S"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 59.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1760950416-94786300.jpg?v=1764421870",
       "url": "https://www.stuartslondon.com/products/lacoste-french-made-sweatpants-brown",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10405774721371",
@@ -712,14 +906,18 @@
       "shop": "Stuarts London",
       "price_amount": 59.0,
       "price": "59.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "NAVY / M"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 59.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/73258.jpg?v=1775730170",
       "url": "https://www.stuartslondon.com/products/rockport-archive-boston-1-4-zip-front-logo-sweat-navy",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10405774819675",
@@ -729,14 +927,19 @@
       "shop": "Stuarts London",
       "price_amount": 59.0,
       "price": "59.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "ECRU / M",
+        "ECRU / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 59.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/73259.jpg?v=1775729316",
       "url": "https://www.stuartslondon.com/products/rockport-archive-boston-1-4-zip-front-logo-sweat-ecru",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10401042792795",
@@ -746,14 +949,18 @@
       "shop": "Stuarts London",
       "price_amount": 39.0,
       "price": "39.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "NAVY BLUE / S"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/2000x2000_84.png?v=1775659756",
       "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-navy-blue",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10401042956635",
@@ -763,14 +970,19 @@
       "shop": "Stuarts London",
       "price_amount": 39.0,
       "price": "39.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "POLAR BLUE / M",
+        "POLAR BLUE / L"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/2000x2000_88.png?v=1775659945",
       "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-polar-blue",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10391646830939",
@@ -780,14 +992,22 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "DELFINO / S",
+        "DELFINO / M",
+        "DELFINO / L",
+        "DELFINO / XL",
+        "DELFINO / XXL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72859-5.jpg?v=1776848816",
       "url": "https://www.stuartslondon.com/products/pitssp-del-ss-polo-tip",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10396597485915",
@@ -797,14 +1017,18 @@
       "shop": "Stuarts London",
       "price_amount": 39.0,
       "price": "39.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "AVIO BLUE / S"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/6_abb3be70-62b7-4b38-92d8-48de04c75dfd.jpg?v=1775576621",
       "url": "https://www.stuartslondon.com/products/aquascutum-club-check-pocket-beach-shorts-avio-blue",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10396724199771",
@@ -814,14 +1038,21 @@
       "shop": "Stuarts London",
       "price_amount": 69.0,
       "price": "69.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "DEEP NAVY / S",
+        "DEEP NAVY / M",
+        "DEEP NAVY / L",
+        "DEEP NAVY / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 69.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/11_b48ae0d6-5bcd-4933-b80e-861fcbfd8113.jpg?v=1775033476",
       "url": "https://www.stuartslondon.com/products/nn07-bruno-linen-blend-polo-deep-navy",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10396724167003",
@@ -831,14 +1062,20 @@
       "shop": "Stuarts London",
       "price_amount": 69.0,
       "price": "69.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "IVORY / S",
+        "IVORY / M",
+        "IVORY / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 69.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/6_0e2b1754-7a1b-47f6-b1c0-7a189edd9b83.jpg?v=1775032683",
       "url": "https://www.stuartslondon.com/products/nn07-bruno-linen-blend-polo-ivory",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10391647093083",
@@ -848,14 +1085,19 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "TRIAN / M",
+        "TRIAN / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_5ac85251-cc8f-43d8-90a2-9afa71ca799e.jpg?v=1774880316",
       "url": "https://www.stuartslondon.com/products/pitssp-tri-ss-polo-tip",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10396597322075",
@@ -865,14 +1107,18 @@
       "shop": "Stuarts London",
       "price_amount": 109.0,
       "price": "109.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "AVIO BLUE / S"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 109.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_cb9ead8b-9e06-400f-bc06-fb192651d21a.jpg?v=1774367502",
       "url": "https://www.stuartslondon.com/products/aquascutum-rlg-badge-packable-trench-avio-blue",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10379567006043",
@@ -882,14 +1128,18 @@
       "shop": "Stuarts London",
       "price_amount": 79.0,
       "price": "79.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "DARK GREEN / UK 7"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 79.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772446771-08524000.jpg?v=1773334598",
       "url": "https://www.stuartslondon.com/products/timberland-low-lace-gtx-hiking-boots-dark-green",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10379565465947",
@@ -899,14 +1149,20 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "TEAL/ECRU / M",
+        "TEAL/ECRU / L",
+        "TEAL/ECRU / XL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772628631-20990400.jpg?v=1773334530",
       "url": "https://www.stuartslondon.com/products/pittari-microstripe-short-sleeve-polo-teal-ecru",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10379565433179",
@@ -916,14 +1172,19 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "OLIVE/ECRU / S",
+        "OLIVE/ECRU / L"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772628317-34985500.jpg?v=1773334527",
       "url": "https://www.stuartslondon.com/products/pittari-microstripe-short-sleeve-polo-olive-ecru",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10379565400411",
@@ -933,14 +1194,22 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "TOBACCO / S",
+        "TOBACCO / M",
+        "TOBACCO / L",
+        "TOBACCO / XL",
+        "TOBACCO / XXL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72865-5_089e10d9-8c51-4aba-b622-c52adfba3a71.jpg?v=1776847981",
       "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-tabacco",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
       "id": "www.stuartslondon.com-10379565302107",
@@ -950,82 +1219,106 @@
       "shop": "Stuarts London",
       "price_amount": 45.0,
       "price": "45.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "OLIVE / S",
+        "OLIVE / M",
+        "OLIVE / L",
+        "OLIVE / XL",
+        "OLIVE / XXL"
+      ],
       "discount_pct": 59,
-      "is_new": true,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
+      "previous_price": 45.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72864-5.jpg?v=1776849257",
       "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-olive",
       "note": "",
-      "score": 64
+      "score": 59
     },
     {
-      "id": "www.stuartslondon.com-10379565269339",
-      "title": "Pittari Short Sleeve Polo Tipping - Palude",
-      "brand": "Pittari",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 45.0,
-      "price": "45.00 GBP",
-      "discount_pct": 59,
-      "is_new": true,
+      "id": "www.escentual.com-15213945946436",
+      "title": "GIVENCHY L'Interdit Tubereuse Noire Eau de Parfum",
+      "brand": "GIVENCHY",
+      "category": "fragrance",
+      "shop": "Escentual",
+      "price_amount": 40.0,
+      "price": "40.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "50ml"
+      ],
+      "discount_pct": 58,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72863-4.jpg?v=1776847167",
-      "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-palude",
+      "previous_price": 40.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYL_InterditTubereuseNoireEaudeParfum50ml.png?v=1755782526",
+      "url": "https://www.escentual.com/products/givenchy-linterdit-tubereuse-noire-eau-de-parfum",
       "note": "",
-      "score": 64
+      "score": 58
     },
     {
-      "id": "www.stuartslondon.com-10379565203803",
-      "title": "Pittari Short Sleeve Polo Tipping - Cappucino",
-      "brand": "Pittari",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 45.0,
-      "price": "45.00 GBP",
-      "discount_pct": 59,
-      "is_new": true,
+      "id": "www.escentual.com-9575049396548",
+      "title": "Clarins Women 12 Day Advent Calendar",
+      "brand": "Clarins",
+      "category": "fragrance",
+      "shop": "Escentual",
+      "price_amount": 40.0,
+      "price": "40.00 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Gift Set"
+      ],
+      "discount_pct": 58,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72862-4.jpg?v=1776846461",
-      "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-cappucino",
+      "previous_price": 40.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/Clarins_Women_12_Day_Advent_Calendar_Contents_f698d896-b383-48d6-8019-496d992366f8.png?v=1762159929",
+      "url": "https://www.escentual.com/products/clarins-women-12-day-advent-calendar",
       "note": "",
-      "score": 64
+      "score": 58
     },
     {
-      "id": "www.stuartslondon.com-10379565171035",
-      "title": "Pittari Short Sleeve Polo Tipping - Biscotto",
-      "brand": "Pittari",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 45.0,
-      "price": "45.00 GBP",
-      "discount_pct": 59,
-      "is_new": true,
+      "id": "www.escentual.com-15162631913796",
+      "title": "GUERLAIN La Petite Robe Noire L'Eau Rose Eau de Parfum Spray",
+      "brand": "GUERLAIN",
+      "category": "fragrance",
+      "shop": "Escentual",
+      "price_amount": 60.04,
+      "price": "60.04 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "100ml"
+      ],
+      "discount_pct": 57,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72861-5.jpg?v=1776848278",
-      "url": "https://www.stuartslondon.com/products/pittari-short-sleeve-polo-tipping-biscotto",
+      "previous_price": 60.04,
+      "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAINLaPetiteRobeNoireL_EauRoseEaudeParfum.png?v=1750948792",
+      "url": "https://www.escentual.com/products/guerlain-la-petite-robe-noire-leau-rose-eau-de-parfum",
       "note": "",
-      "score": 64
+      "score": 57
     },
     {
-      "id": "www.stuartslondon.com-10379555766619",
-      "title": "Snow Peak Utility Shirt - White",
-      "brand": "Snow Peak",
-      "category": "menswear",
-      "shop": "Stuarts London",
-      "price_amount": 35.0,
-      "price": "35.00 GBP",
-      "discount_pct": 59,
-      "is_new": true,
+      "id": "www.escentual.com-9575219528004",
+      "title": "Schwarzkopf Professional BC Bonacure Sun Protect Travel Set",
+      "brand": "Schwarzkopf Professional",
+      "category": "fragrance",
+      "shop": "Escentual",
+      "price_amount": 12.09,
+      "price": "12.09 GBP",
+      "price_is_from": false,
+      "sizes": [
+        "Gift Set"
+      ],
+      "discount_pct": 57,
+      "is_new": false,
       "price_dropped": false,
-      "previous_price": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771581948-02824500.jpg?v=1773334053",
-      "url": "https://www.stuartslondon.com/products/snow-peak-utility-shirt-white",
+      "previous_price": 12.09,
+      "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/Schwarzkopf_Professional_BC_Bonacure_Sun_Hair_Protect_Gift_Set.png?v=1745925045",
+      "url": "https://www.escentual.com/products/schwarzkopf-professional-bc-bonacure-sun-protect-travel-set",
       "note": "",
-      "score": 64
+      "score": 57
     }
   ]
 }
