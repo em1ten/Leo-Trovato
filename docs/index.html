@@ -120,6 +120,11 @@
     padding: 16px 2px 8px;
   }
 
+  .established {
+    font-size: 10px; letter-spacing: 0.06em; color: var(--ink-muted);
+    margin-left: 6px;
+  }
+
   .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 12px; }
   .price-from { font-size: 11px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
   .price { font-size: 16px; font-weight: 600; }
@@ -203,7 +208,7 @@ function renderCard(item) {
     ${item.photo ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.remove()" />` : ''}
     <div class="card-body">
       <div class="meta-row">
-        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}</span>
+        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}${item.is_notable_brand ? '<span class="established">· established house</span>' : ''}</span>
         <span class="stamp mono${item.price_dropped ? ' dropped' : ''}"><span class="pct">-${item.discount_pct}%</span></span>
       </div>
       <p class="title">${escapeHtml(fullTitle)}</p>
