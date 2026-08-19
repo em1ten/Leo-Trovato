@@ -178,6 +178,9 @@ def main():
     notes = load_json(NOTES_PATH, {})
     global_exclude = config.get("global_exclude", [])
     min_discount = config.get("min_discount_pct", 20)
+    # Per-category overrides: watch markdowns run 10-25% where fashion runs
+    # 40-70%, so one global threshold silently excludes an entire category.
+    min_discount_by_category = config.get("min_discount_pct_by_category", {})
 
     feed = []
     errors = []
@@ -185,7 +188,7 @@ def main():
     for shop in config["shop_watches"]:
         print(f"Scanning {shop['name']} ({shop['domain']})...")
         try:
-            products = fetch_products(shop["domain"])
+            products = fetch_products(shop["domain"], max_pages=shop.get("max_pages", 5))
         except Exception as exc:
             print(f"  ! {shop['name']} failed: {exc}")
             errors.append({"shop": shop["name"], "error": str(exc)})
@@ -194,9 +197,34 @@ def main():
         for product in products:
             feed.extend(build_cards(product, shop, global_exclude, price_history, notes))
 
-    feed = [item for item in feed if item["discount_pct"] >= min_discount]
+    def passes_threshold(item):
+        threshold = min_discount_by_category.get(item["category"], min_discount)
+        return item["discount_pct"] >= threshold
+
+    feed = [item for item in feed if passes_threshold(item)]
     feed.sort(key=lambda item: item["score"], reverse=True)
-    feed = feed[: config.get("feed_size", 60)]
+
+    # Guarantee each category a floor of slots before filling the rest by
+    # score, so 50-70% fashion markdowns can't push watches out entirely.
+    feed_size = config.get("feed_size", 60)
+    category_floor = config.get("category_floor", 6)
+    selected = []
+    selected_ids = set()
+    by_category = {}
+    for item in feed:
+        by_category.setdefault(item["category"], []).append(item)
+    for category_items in by_category.values():
+        for item in category_items[:category_floor]:
+            selected.append(item)
+            selected_ids.add(item["id"])
+    for item in feed:
+        if len(selected) >= feed_size:
+            break
+        if item["id"] not in selected_ids:
+            selected.append(item)
+            selected_ids.add(item["id"])
+    selected.sort(key=lambda item: item["score"], reverse=True)
+    feed = selected[:feed_size]
 
     PRICE_HISTORY_PATH.write_text(json.dumps(price_history))
     OUTPUT_PATH.parent.mkdir(exist_ok=True)
