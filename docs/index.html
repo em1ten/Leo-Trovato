@@ -104,6 +104,22 @@
   .note { font-size: 13px; color: var(--ink-secondary); margin: 3px 0 0; line-height: 1.5; }
   .sizes { font-size: 11px; color: var(--ink-muted); margin: 8px 0 0; letter-spacing: 0.03em; }
 
+  .lowflag {
+    display: inline-block; margin: 8px 0 0;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent);
+    padding: 3px 7px;
+  }
+  .tracked { font-size: 10px; color: var(--ink-muted); margin: 7px 0 0; letter-spacing: 0.04em; }
+
+  .section-head {
+    grid-column: 1 / -1;
+    background: var(--bg);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-secondary);
+    padding: 16px 2px 8px;
+  }
+
   .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 12px; }
   .price-from { font-size: 11px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
   .price { font-size: 16px; font-weight: 600; }
@@ -123,7 +139,7 @@
 <div class="wrap">
   <header>
     <h1>Leo Trovato</h1>
-    <p class="tagline">Genuine markdowns from authorised retailers. No fakes, no inflated RRPs.</p>
+    <p class="tagline">Prices watched over time at authorised retailers — so a markdown is measured against what an item actually sold for, not an invented RRP.</p>
     <span class="updated" id="updated"></span>
   </header>
 
@@ -193,6 +209,9 @@ function renderCard(item) {
       <p class="title">${escapeHtml(fullTitle)}</p>
       ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
       ${sizesLine ? `<p class="sizes mono">${sizesLine}</p>` : ''}
+      ${item.at_observed_low ? '<span class="lowflag">Lowest we\'ve tracked</span>' : ''}
+      ${!item.at_observed_low && item.has_history && item.below_observed_high >= 10 ? `<p class="tracked mono">${item.below_observed_high}% below its usual price here</p>` : ''}
+      ${item.has_history && item.observed_low && !item.at_observed_low ? `<p class="tracked mono">Tracked low ${fmtMoney(item.observed_low)} · ${item.observations} checks</p>` : ''}
       <div class="price-row">
         <span class="mono">${item.price_is_from ? '<span class="price-from">From</span>' : ''}<span class="price">${fmtMoney(item.price_amount)}</span>${item.compare_at ? `<span class="was">${fmtMoney(item.compare_at)}</span>` : ''}</span>
         <span class="link">View →</span>
@@ -206,8 +225,24 @@ function render() {
   const feed = document.getElementById('feed');
   feed.innerHTML = '';
   const items = activeCategory === 'all' ? allItems : allItems.filter(i => i.category === activeCategory);
+
   if (!items.length) {
     feed.innerHTML = '<p class="empty">Nothing here right now — check back soon.</p>';
+  } else if (activeCategory === 'all') {
+    // Group by category so the combined view reads as sections, not a wall.
+    const order = ['menswear', 'fragrance', 'watches'];
+    const grouped = {};
+    items.forEach(i => { (grouped[i.category] = grouped[i.category] || []).push(i); });
+    const cats = order.filter(c => grouped[c]).concat(
+      Object.keys(grouped).filter(c => !order.includes(c))
+    );
+    cats.forEach(cat => {
+      const head = document.createElement('div');
+      head.className = 'section-head';
+      head.textContent = categoryLabel(cat);
+      feed.appendChild(head);
+      grouped[cat].forEach(item => feed.appendChild(renderCard(item)));
+    });
   } else {
     items.forEach(item => feed.appendChild(renderCard(item)));
   }
