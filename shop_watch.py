@@ -158,6 +158,7 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         "price_amount": price,
         "price": f"{price:.2f} GBP",
         "price_is_from": price_is_from,
+        "compare_at": compare_at,
         "sizes": sizes,
         "discount_pct": discount_pct,
         "is_new": is_new,
