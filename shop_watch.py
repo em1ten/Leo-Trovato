@@ -111,6 +111,18 @@ def build_cards(product, shop, global_exclude, price_history, notes):
     best_variant, price, compare_at = min(on_sale_variants, key=lambda v: v[1])
     discount_pct = round((1 - price / compare_at) * 100)
 
+    # Available on-sale variant names (sizes for menswear, ml for fragrance).
+    # Shopify uses "Default Title" for single-variant products - not a size.
+    sizes = []
+    for variant, _, _ in on_sale_variants:
+        title = (variant.get("title") or "").strip()
+        if title and title.lower() != "default title":
+            sizes.append(title)
+
+    # If on-sale variants have different prices, the shown price is the
+    # cheapest, so the card should say "from".
+    price_is_from = len({v[1] for v in on_sale_variants}) > 1
+
     product_id = product.get("id")
     item_id = f"{domain}-{product_id}"
     is_new = item_id not in price_history
@@ -145,6 +157,8 @@ def build_cards(product, shop, global_exclude, price_history, notes):
         "shop": shop_name,
         "price_amount": price,
         "price": f"{price:.2f} GBP",
+        "price_is_from": price_is_from,
+        "sizes": sizes,
         "discount_pct": discount_pct,
         "is_new": is_new,
         "price_dropped": price_dropped,
