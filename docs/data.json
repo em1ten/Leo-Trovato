@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787255104,
+  "generated_at": 1787263095,
   "errors": [],
   "feed": [
     {
@@ -23,14 +23,14 @@
       "observed_low": 10.0,
       "observed_high": 10.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/71641-1.jpg?v=1773917552",
       "url": "https://www.stuartslondon.com/products/dents-corduroy-flat-cap-brown",
       "note": "English glovemaker since 1777.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10396597191003",
@@ -53,14 +53,14 @@
       "observed_low": 109.0,
       "observed_high": 109.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/12_8cfa3e66-a997-40bc-b6a8-e7b38f621b0e.jpg?v=1774366026",
       "url": "https://www.stuartslondon.com/products/aquascutum-shell-sp-overshirt-club-check",
       "note": "British tailoring house, 1851.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10395462959451",
@@ -84,14 +84,14 @@
       "observed_low": 29.0,
       "observed_high": 29.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/5_82e5f2cb-7fd1-49e0-b885-f349543329d2.jpg?v=1774280772",
       "url": "https://www.stuartslondon.com/products/barbour-mordey-chino-short-mist",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10395462861147",
@@ -114,14 +114,14 @@
       "observed_low": 29.0,
       "observed_high": 29.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_8c084a1e-83be-4647-b052-df22584ac4bb.jpg?v=1774279772",
       "url": "https://www.stuartslondon.com/products/barbour-mordey-chino-short-navy",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379590762843",
@@ -144,14 +144,14 @@
       "observed_low": 129.0,
       "observed_high": 129.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765372159-30518000.jpg?v=1773334808",
       "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-camel",
       "note": "House pattern since the 1920s. Scottish cashmere.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379590730075",
@@ -174,14 +174,14 @@
       "observed_low": 129.0,
       "observed_high": 129.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765367435-62319200.jpg?v=1773334808",
       "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-blue",
       "note": "House pattern since the 1920s. Scottish cashmere.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379568644443",
@@ -204,14 +204,14 @@
       "observed_low": 295.0,
       "observed_high": 295.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/46_f318a22a-97b7-4a56-a3a3-7da7006afd84.jpg?v=1776939501",
       "url": "https://www.stuartslondon.com/products/belstaff-maymark-overshirt-dark-sand",
       "note": "Built its name on waxed motorcycle jackets.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379565695323",
@@ -234,14 +234,14 @@
       "observed_low": 39.0,
       "observed_high": 39.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772466793-35244200.jpg?v=1773334539",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-reno-shirt-jac-green",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379557699931",
@@ -264,14 +264,14 @@
       "observed_low": 29.0,
       "observed_high": 29.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1770985472-25717500.jpg?v=1773334150",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-craft-pant-vesuvius",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379549606235",
@@ -296,14 +296,14 @@
       "observed_low": 29.0,
       "observed_high": 29.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1768818047-21027000.jpg?v=1773333814",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-craft-pant-leather",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379546001755",
@@ -326,14 +326,14 @@
       "observed_low": 49.0,
       "observed_high": 49.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766487745-63178400.jpg?v=1773333670",
       "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-khaki-green",
       "note": "Same Slovak factory since the 1930s.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10379545903451",
@@ -356,14 +356,14 @@
       "observed_low": 49.0,
       "observed_high": 49.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766489412-91688200.jpg?v=1773333665",
       "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-brown-67352",
       "note": "Same Slovak factory since the 1930s.",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10220525158747",
@@ -386,14 +386,14 @@
       "observed_low": 59.0,
       "observed_high": 59.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1692199415-52524100.jpg?v=1764458792",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-classic-vest-brown",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10220275597659",
@@ -419,14 +419,14 @@
       "observed_low": 49.0,
       "observed_high": 49.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762508207-72544800.jpg?v=1764422393",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-black-rigid",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10220275564891",
@@ -451,14 +451,14 @@
       "observed_low": 49.0,
       "observed_high": 49.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1762507792-82690000.jpg?v=1764422392",
       "url": "https://www.stuartslondon.com/products/carhartt-wip-tigan-shirt-jac-blue-rigid",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "jeanstore.co.uk-15019666211197",
@@ -481,14 +481,14 @@
       "observed_low": 38.7,
       "observed_high": 38.7,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/i033402_whw_gd-st-01.jpg?v=1740393311",
       "url": "https://jeanstore.co.uk/products/edwin-trembley-jacket-whisper-white",
       "note": "",
-      "score": 31.2
+      "score": 31.5
     },
     {
       "id": "www.stuartslondon.com-10396724199771",
@@ -514,14 +514,14 @@
       "observed_low": 69.0,
       "observed_high": 69.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/11_b48ae0d6-5bcd-4933-b80e-861fcbfd8113.jpg?v=1775033476",
       "url": "https://www.stuartslondon.com/products/nn07-bruno-linen-blend-polo-deep-navy",
       "note": "Danish. Considered basics.",
-      "score": 30.9
+      "score": 31.1
     },
     {
       "id": "www.stuartslondon.com-10396724167003",
@@ -546,14 +546,14 @@
       "observed_low": 69.0,
       "observed_high": 69.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/6_0e2b1754-7a1b-47f6-b1c0-7a189edd9b83.jpg?v=1775032683",
       "url": "https://www.stuartslondon.com/products/nn07-bruno-linen-blend-polo-ivory",
       "note": "Danish. Considered basics.",
-      "score": 30.9
+      "score": 31.1
     },
     {
       "id": "www.stuartslondon.com-10396597322075",
@@ -576,14 +576,14 @@
       "observed_low": 109.0,
       "observed_high": 109.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_cb9ead8b-9e06-400f-bc06-fb192651d21a.jpg?v=1774367502",
       "url": "https://www.stuartslondon.com/products/aquascutum-rlg-badge-packable-trench-avio-blue",
       "note": "British tailoring house, 1851.",
-      "score": 30.9
+      "score": 31.1
     },
     {
       "id": "www.escentual.com-15213945946436",
@@ -606,14 +606,14 @@
       "observed_low": 40.0,
       "observed_high": 40.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYL_InterditTubereuseNoireEaudeParfum50ml.png?v=1755782526",
       "url": "https://www.escentual.com/products/givenchy-linterdit-tubereuse-noire-eau-de-parfum",
       "note": "",
-      "score": 30.5
+      "score": 30.8
     },
     {
       "id": "www.stuartslondon.com-10395462467931",
@@ -636,14 +636,14 @@
       "observed_low": 29.0,
       "observed_high": 29.0,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/5_3303a1e9-ac08-41e3-8cfd-8e9dc40edf19.jpg?v=1774345786",
       "url": "https://www.stuartslondon.com/products/barbour-seersucker-relaxed-shorts-olive",
       "note": "",
-      "score": 30.5
+      "score": 30.8
     },
     {
       "id": "www.escentual.com-15162631913796",
@@ -666,14 +666,14 @@
       "observed_low": 60.04,
       "observed_high": 60.04,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAINLaPetiteRobeNoireL_EauRoseEaudeParfum.png?v=1750948792",
       "url": "https://www.escentual.com/products/guerlain-la-petite-robe-noire-leau-rose-eau-de-parfum",
       "note": "French perfume house since 1828.",
-      "score": 30.2
+      "score": 30.4
     },
     {
       "id": "www.escentual.com-15444510572868",
@@ -696,14 +696,14 @@
       "observed_low": 92.5,
       "observed_high": 92.5,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAINAbsolusAllegoriaCuirIntenseEaudeParfumGiftSet.png?v=1770897671",
       "url": "https://www.escentual.com/products/guerlain-cuir-intense-eau-de-parfum-gift-set",
       "note": "French perfume house since 1828.",
-      "score": 27.8
+      "score": 28.0
     },
     {
       "id": "www.escentual.com-14974055153988",
@@ -727,14 +727,14 @@
       "observed_low": 46.07,
       "observed_high": 46.07,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYGentlemanSocietyAmbreeEaudeParfumSpray60ml.png?v=1743074559",
       "url": "https://www.escentual.com/products/givenchy-gentleman-society-ambree-eau-de-parfum-spray",
       "note": "",
-      "score": 27.0
+      "score": 27.3
     },
     {
       "id": "www.escentual.com-15188914045252",
@@ -757,14 +757,14 @@
       "observed_low": 63.7,
       "observed_high": 63.7,
       "below_observed_high": 0,
-      "observations": 9,
+      "observations": 10,
       "tracked_since": 1787166834,
       "has_history": true,
       "is_notable_brand": true,
       "photo": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYL_InterditParfum35ml_c3d5a318-2e75-4b97-973b-a9143371728d.png?v=1754997933",
       "url": "https://www.escentual.com/products/givenchy-linterdit-parfum",
       "note": "",
-      "score": 25.3
+      "score": 25.5
     },
     {
       "id": "www.jurawatches.co.uk-15066035487103",
@@ -785,14 +785,14 @@
       "observed_low": 196.88,
       "observed_high": 196.88,
       "below_observed_high": 0,
-      "observations": 4,
+      "observations": 5,
       "tracked_since": 1787220383,
       "has_history": true,
       "is_notable_brand": false,
       "photo": "https://cdn.shopify.com/s/files/1/0125/7792/files/YBF774034001_1fc6a393-e572-46d2-b9bd-4236be4cdc06.jpg?v=1758049810",
       "url": "https://www.jurawatches.co.uk/products/gucci-interlocking-g-sterling-silver-tieslide-ybf774034001",
       "note": "",
-      "score": 9.8
+      "score": 10.0
     },
     {
       "id": "www.jurawatches.co.uk-7284933591076",
@@ -813,14 +813,14 @@
       "observed_low": 90.62,
       "observed_high": 90.62,
       "below_observed_high": 0,
-      "observations": 4,
+      "observations": 5,
       "tracked_since": 1787220383,
       "has_history": true,
       "is_notable_brand": false,
       "photo": "https://cdn.shopify.com/s/files/1/0125/7792/files/swarovski-annual-edition-ornament-set-2023-5649776.jpg?v=1689173437",
       "url": "https://www.jurawatches.co.uk/products/swarovski-annual-edition-ornament-set-2023-5649776",
       "note": "",
-      "score": 9.8
+      "score": 10.0
     },
     {
       "id": "www.jurawatches.co.uk-15073358119295",
@@ -841,7 +841,7 @@
       "observed_low": null,
       "observed_high": null,
       "below_observed_high": 0,
-      "observations": 2,
+      "observations": 3,
       "tracked_since": 1787235005,
       "has_history": false,
       "is_notable_brand": false,
@@ -869,7 +869,7 @@
       "observed_low": null,
       "observed_high": null,
       "below_observed_high": 0,
-      "observations": 2,
+      "observations": 3,
       "tracked_since": 1787235005,
       "has_history": false,
       "is_notable_brand": false,
@@ -897,7 +897,7 @@
       "observed_low": null,
       "observed_high": null,
       "below_observed_high": 0,
-      "observations": 2,
+      "observations": 3,
       "tracked_since": 1787235005,
       "has_history": false,
       "is_notable_brand": false,
