@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Proper Finds — genuine markdowns on menswear, fragrance & watches</title>
-<meta name="description" content="Genuine markdowns from authorised retailers. Menswear, fragrance and watches. No fakes, no inflated RRPs." />
+<meta name="description" content="Genuine markdowns on menswear, fragrance and watches — checked against real price history, not an invented RRP." />
 <meta name="theme-color" content="#faf9f7" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +61,23 @@
   .tab:hover { color: var(--ink-secondary); }
   .tab:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
   .tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .filters { display: flex; gap: 24px; flex-wrap: wrap; align-items: baseline; margin: -20px 0 36px; }
+  .filter-field { display: flex; flex-direction: column; gap: 4px; }
+  .filter-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+  .filter-input, .filter-select {
+    font-family: inherit; font-size: 13px; color: var(--ink);
+    background: transparent; border: none; border-bottom: 1px solid var(--hairline);
+    padding: 4px 0; min-width: 160px;
+  }
+  .filter-input:focus, .filter-select:focus { outline: none; border-bottom-color: var(--ink); }
+  .filter-input::placeholder { color: var(--ink-muted); }
+  .filter-clear {
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-muted); text-decoration: underline; cursor: pointer;
+    align-self: flex-end; padding-bottom: 5px; display: none;
+  }
+  .filter-clear.visible { display: inline; }
 
   #feed { display: grid; grid-template-columns: 1fr; gap: 56px 40px; }
   @media (min-width: 680px) { #feed { grid-template-columns: 1fr 1fr; } }
@@ -137,7 +154,7 @@
 <div class="wrap">
   <header>
     <h1>Proper Finds</h1>
-    <p class="tagline">Prices watched over time at authorised retailers — so a markdown is measured against what an item actually sold for, not an invented RRP.</p>
+    <p class="tagline">Every discount checked against its own price history — not an invented RRP.</p>
     <span class="updated" id="updated"></span>
   </header>
 
@@ -147,6 +164,32 @@
     <span class="tab" data-cat="fragrance" tabindex="0">Fragrance</span>
     <span class="tab" data-cat="watches" tabindex="0">Watches</span>
   </nav>
+
+  <div class="filters">
+    <div class="filter-field">
+      <label class="filter-label" for="sizeFilter">Size</label>
+      <input class="filter-input" id="sizeFilter" type="text" placeholder="e.g. M, W32, UK 9" />
+    </div>
+    <div class="filter-field">
+      <label class="filter-label" for="priceFilter">Price</label>
+      <select class="filter-select" id="priceFilter">
+        <option value="">Any price</option>
+        <option value="0-50">Under £50</option>
+        <option value="50-100">£50 – £100</option>
+        <option value="100-250">£100 – £250</option>
+        <option value="250-500">£250 – £500</option>
+        <option value="500-999999">£500+</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <label class="filter-label" for="sortOrder">Sort</label>
+      <select class="filter-select" id="sortOrder">
+        <option value="recommended">Recommended</option>
+        <option value="discount">Biggest discount</option>
+      </select>
+    </div>
+    <span class="filter-clear" id="filterClear">Clear filters</span>
+  </div>
 
   <div id="feed"></div>
 
@@ -159,6 +202,9 @@
 <script>
 let allItems = [];
 let activeCategory = 'all';
+let sizeQuery = '';
+let priceRange = null;
+let sortOrder = 'recommended';
 
 function fmtMoney(n) {
   return '£' + Number(n).toFixed(2).replace(/\.00$/, '');
@@ -227,14 +273,34 @@ function renderCard(item) {
   return a;
 }
 
+function matchesFilters(item) {
+  if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+  if (sizeQuery) {
+    const q = sizeQuery.trim().toLowerCase();
+    const hasSize = (item.sizes || []).some(s => s.toLowerCase().includes(q));
+    if (!hasSize) return false;
+  }
+  if (priceRange) {
+    const [min, max] = priceRange;
+    if (item.price_amount < min || item.price_amount > max) return false;
+  }
+  return true;
+}
+
 function render() {
   const feed = document.getElementById('feed');
   feed.innerHTML = '';
-  const items = activeCategory === 'all' ? allItems : allItems.filter(i => i.category === activeCategory);
+  let items = allItems.filter(matchesFilters);
+  if (sortOrder === 'discount') {
+    items = items.slice().sort((a, b) => b.discount_pct - a.discount_pct);
+  }
+
+  const filtersActive = sizeQuery || priceRange || sortOrder !== 'recommended';
+  document.getElementById('filterClear').classList.toggle('visible', !!filtersActive);
 
   if (!items.length) {
-    feed.innerHTML = '<p class="empty">Nothing here right now — check back soon.</p>';
-  } else if (activeCategory === 'all') {
+    feed.innerHTML = '<p class="empty">Nothing matches right now — try widening the filters.</p>';
+  } else if (activeCategory === 'all' && !filtersActive) {
     const order = ['menswear', 'fragrance', 'watches'];
     const grouped = {};
     items.forEach(i => { (grouped[i.category] = grouped[i.category] || []).push(i); });
@@ -271,6 +337,29 @@ document.getElementById('pills').addEventListener('keydown', (e) => {
     e.preventDefault();
     activateTab(tab);
   }
+});
+
+document.getElementById('sizeFilter').addEventListener('input', (e) => {
+  sizeQuery = e.target.value;
+  render();
+});
+document.getElementById('priceFilter').addEventListener('change', (e) => {
+  const val = e.target.value;
+  priceRange = val ? val.split('-').map(Number) : null;
+  render();
+});
+document.getElementById('sortOrder').addEventListener('change', (e) => {
+  sortOrder = e.target.value;
+  render();
+});
+document.getElementById('filterClear').addEventListener('click', () => {
+  sizeQuery = '';
+  priceRange = null;
+  sortOrder = 'recommended';
+  document.getElementById('sizeFilter').value = '';
+  document.getElementById('priceFilter').value = '';
+  document.getElementById('sortOrder').value = 'recommended';
+  render();
 });
 
 fetch('data.json?t=' + Date.now())
