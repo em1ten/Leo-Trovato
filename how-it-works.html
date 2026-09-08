@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How we check — Proper Finds</title>
+<meta name="description" content="How Proper Finds checks a discount against real price history instead of a retailer's claimed RRP." />
+<meta name="theme-color" content="#faf9f7" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf9f7;
+    --ink: #141412;
+    --ink-secondary: #5c5a55;
+    --ink-muted: #9a9790;
+    --hairline: #e4e2dc;
+    --accent: #6b2b2b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  a.back { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; }
+  a.back:hover { color: var(--ink-secondary); }
+
+  h1 {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-size: 34px; font-weight: 500; font-style: italic;
+    margin: 32px 0 28px; letter-spacing: 0.01em;
+  }
+  h2 {
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-size: 19px; font-weight: 400; font-style: italic;
+    margin: 40px 0 12px;
+  }
+  p { font-size: 14px; line-height: 1.75; color: var(--ink-secondary); margin: 0 0 16px; }
+  p.lede { font-size: 15px; color: var(--ink); }
+  strong { color: var(--ink); font-weight: 500; }
+
+  .badge-example {
+    display: flex; gap: 14px; align-items: baseline;
+    padding: 16px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+    margin: 16px 0 28px; font-size: 13px;
+  }
+  .badge-example b { font-family: "Bodoni Moda", Georgia, serif; font-style: italic; color: var(--accent); }
+
+  footer { border-top: 1px solid var(--hairline); padding-top: 20px; margin-top: 40px; font-size: 11px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Proper Finds</a>
+  <h1>How we check</h1>
+
+  <p class="lede">A retailer setting a price of £150, then a sale price of £89, doesn't necessarily mean anything. Both numbers are theirs to set. We don't take either on trust.</p>
+
+  <h2>What we actually track</h2>
+  <p>Every few hours, the scanner checks each retailer's own product feed and records the price. Over time this builds a genuine history for each item — not what a retailer claims it's worth, but what it's actually been sold at, watched over weeks.</p>
+
+  <h2>What the labels mean</h2>
+  <div class="badge-example">
+    <b>Lowest we've tracked</b>
+    <span>The cheapest we've ever recorded this item selling for, and we've watched it move — not just seen it once.</span>
+  </div>
+  <div class="badge-example">
+    <b>X% below its typical price</b>
+    <span>Compared against the average of everything we've observed, not a single all-time high that might have been a one-off.</span>
+  </div>
+  <div class="badge-example">
+    <b>Tracked low £X · N checks</b>
+    <span>The lowest price seen isn't today's price, but we've checked enough times to trust the number.</span>
+  </div>
+
+  <h2>Why some items show none of this</h2>
+  <p>A new item needs several scans before we'll claim anything about its history — otherwise "lowest we've tracked" would just mean "the only price we've ever seen," which isn't a claim worth making. Until then, the item's still shown if the markdown against the retailer's own listed price clears our threshold, just without the extra context.</p>
+
+  <h2>What we don't do</h2>
+  <p>We don't show every item every retailer discounts. A minimum price floor (checked against the <em>original</em> price, not the sale price) filters out things that were always cheap rather than genuinely marked down. Implausible discounts get excluded automatically rather than trusted at face value. And we'd rather show fewer, better items than everything that technically qualifies.</p>
+
+  <h2>Affiliate links</h2>
+  <p>Some links on this site are affiliate links, and we may earn a commission if you buy something through one. It doesn't cost you anything extra, and it doesn't affect which items get shown or how they're ranked — the price history is checked the same way whether or not a link is monetised yet.</p>
+
+  <footer>Proper Finds — genuine markdowns, checked against real price history.</footer>
+</div>
+</body>
+</html>
