@@ -8,6 +8,7 @@ which doesn't apply to a public feed.
 """
 
 import json
+import re
 import time
 from pathlib import Path
 
@@ -135,9 +136,19 @@ def product_text(product):
     ]).lower()
 
 
+def term_matches(term, text):
+    """Word-boundary-aware match, not a naive substring check. A plain 'in'
+    check for the term 'watch' incorrectly matches inside 'swatch' (Swarovski
+    uses this for colour/fabric samples) - a real bug that put a crystal
+    ornament in the watches category. \\b on the left only (not both sides)
+    so 'watch' still correctly matches 'watch', 'watches', 'watchmaker' etc -
+    just not when it's a suffix of a longer, unrelated word."""
+    return re.search(r"\b" + re.escape(term), text) is not None
+
+
 def is_excluded(product, exclude_terms):
     text = product_text(product)
-    return any(term in text for term in exclude_terms)
+    return any(term_matches(term, text) for term in exclude_terms)
 
 
 def is_relevant(product, must_include_any):
@@ -149,7 +160,7 @@ def is_relevant(product, must_include_any):
     if not must_include_any:
         return True
     text = product_text(product)
-    return any(term in text for term in must_include_any)
+    return any(term_matches(term, text) for term in must_include_any)
 
 
 def affiliate_wrap(url, shop):
@@ -390,6 +401,24 @@ def main():
         return item["discount_pct"] >= threshold and item["compare_at"] >= floor
 
     feed = [item for item in feed if passes_threshold(item)]
+
+    # Dedupe by product family - same shop, same base product name (title
+    # stripped of a trailing " - Colourway"). A retailer running a flat
+    # clearance price across a dozen colours of the same item shouldn't fill
+    # the feed with near-identical cards - genuine variety matters more than
+    # showing every colourway of one clearance line. Keep only the single
+    # best-scoring variant per family.
+    def family_key(item):
+        base_title = item["title"].split(" - ")[0].strip().lower()
+        return (item["shop"], base_title)
+
+    best_per_family = {}
+    for item in feed:
+        key = family_key(item)
+        if key not in best_per_family or item["score"] > best_per_family[key]["score"]:
+            best_per_family[key] = item
+    feed = list(best_per_family.values())
+
     feed.sort(key=lambda item: item["score"], reverse=True)
 
     # Guarantee each SHOP a floor of slots first - not just each category.
