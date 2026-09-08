@@ -41,15 +41,40 @@
       "affiliate_id": ""
     },
     {
+      "name": "Sainte Cellier",
+      "domain": "saintecellier.com",
+      "category": "fragrance",
+      "affiliate_network": "unconfirmed",
+      "affiliate_id": "",
+      "_note": "Niche/artisanal fragrance boutique, confirmed Shopify. UNVERIFIED: site may default to USD not GBP - check the first scan's actual prices against real listings before trusting this shop's output. Affiliate programme not yet checked."
+    },
+    {
+      "name": "Les Senteurs",
+      "domain": "www.lessenteurs.com",
+      "category": "fragrance",
+      "affiliate_network": "unconfirmed",
+      "affiliate_id": "",
+      "_note": "Belgravia niche perfumery since 1984, confirmed Shopify. Genuine compare_at_price markdowns confirmed live (not checkout-code discounts) via a real seasonal sale collection. Prestigious brand roster: Frederic Malle, Clive Christian, Maison Francis Kurkdjian, Creed, Kilian Paris. Affiliate programme not yet checked."
+    },
+    {
       "name": "Jura Watches",
       "domain": "www.jurawatches.co.uk",
       "category": "watches",
       "affiliate_network": "awin",
       "affiliate_id": "",
       "max_pages": 12
+    },
+    {
+      "name": "WatchNation",
+      "domain": "www.watchnation.com",
+      "category": "watches",
+      "affiliate_network": "awin",
+      "affiliate_id": "",
+      "_note": "Confirmed Shopify, confirmed Awin affiliate programme live. Genuine authorised dealer - Hamilton, Marathon, Squale, Nivada Grenchen, Seiko, Orient among others."
     }
   ],
   "feed_size": 30,
+  "shop_floor": 3,
   "min_discount_pct": 20,
   "min_discount_pct_by_category": {
     "watches": 10
@@ -70,6 +95,22 @@
       "fragrance",
       "aftershave",
       "eau fraiche"
+    ],
+    "watches": [
+      "watch",
+      "chronograph",
+      "automatic",
+      "quartz",
+      "timepiece",
+      "ring",
+      "bracelet",
+      "necklace",
+      "pendant",
+      "earring",
+      "bangle",
+      "jewellery",
+      "jewelry",
+      "cufflink"
     ]
   },
   "notable_brands": {
@@ -82,7 +123,10 @@
       "Guerlain", "Givenchy", "Chanel", "Dior", "Diptyque", "Jo Malone",
       "Le Labo", "Maison Margiela", "Acqua di Parma", "Creed", "Tom Ford",
       "Longines", "Omega", "Tudor", "Tag Heuer", "IWC", "Breitling",
-      "Zenith", "Oris", "Nomos", "Cartier"
+      "Zenith", "Oris", "Nomos", "Cartier",
+      "Hamilton", "Marathon", "Squale", "Nivada Grenchen",
+      "Frederic Malle", "Clive Christian", "Maison Francis Kurkdjian",
+      "Kilian Paris", "Papillon", "Marc-Antoine Barrois"
     ],
     "facts": {
       "Pringle of Scotland": "House pattern since the 1920s. Scottish cashmere.",
