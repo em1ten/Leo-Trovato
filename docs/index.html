@@ -194,6 +194,319 @@
   <div id="feed"></div>
 
   <footer>
+    <span>Affiliate links — we may earn a commission · <a href="how-it-works.html" style="color: inherit;">How we check</a></span>
+    <span id="count"></span>
+  </footer>
+</div>
+
+<script>
+let allItems = [];
+let activeCategory = 'all';
+let sizeQuery = '';
+let priceRange = null;
+let sortOrder = 'recommended';
+
+function fmtMoney(n) {
+  return '£' + Number(n).toFixed(2).replace(/\.00$/, '');
+}
+
+function timeAgo(unixSeconds) {
+  const mins = Math.round((Date.now() / 1000 - unixSeconds) / 60);
+  if (mins < 60) return `Updated ${mins} min ago`;
+  const hours = Math.round(mins / 60);
+  return `Updated ${hours}h ago`;
+}
+
+function categoryLabel(cat) {
+  return { menswear: 'Menswear', fragrance: 'Fragrance', watches: 'Watches' }[cat] || cat;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : str;
+  return div.innerHTML;
+}
+
+function renderCard(item) {
+  const a = document.createElement('a');
+  a.className = 'card';
+  a.href = item.url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer sponsored';
+
+  const titleStartsWithBrand = item.brand && item.title.toLowerCase().startsWith(item.brand.toLowerCase());
+  const fullTitle = (item.brand && !titleStartsWithBrand) ? item.brand + ' ' + item.title : item.title;
+
+  let sizesLine = '';
+  if (item.sizes && item.sizes.length) {
+    const shown = item.sizes.slice(0, 8);
+    const extra = item.sizes.length - shown.length;
+    sizesLine = shown.map(escapeHtml).join(' · ') + (extra > 0 ? ` +${extra}` : '');
+  }
+
+  const thumbInner = item.photo
+    ? `<img class="thumb" src="${escapeHtml(item.photo)}" alt="" loading="lazy" onerror="this.remove();" />`
+    : '';
+
+  a.innerHTML = `
+    <div class="thumb-wrap">
+      ${thumbInner}
+      <span class="tag tabular${item.price_dropped ? ' dropped' : ''}">−${item.discount_pct}%</span>
+    </div>
+    <div class="card-body">
+      <div class="meta-row">
+        <span class="shop">${escapeHtml(categoryLabel(item.category))} · ${escapeHtml(item.shop)}</span>
+        ${item.is_notable_brand ? '<span class="established">Established house</span>' : ''}
+      </div>
+      <p class="title">${escapeHtml(fullTitle)}</p>
+      ${item.note ? `<p class="note">${escapeHtml(item.note)}</p>` : ''}
+      ${sizesLine ? `<p class="sizes tabular">${sizesLine}</p>` : ''}
+      ${item.at_observed_low ? '<span class="lowflag">Lowest we\'ve tracked</span>' : ''}
+      ${!item.at_observed_low && item.has_history && item.below_typical_pct >= 10 ? `<p class="tracked tabular">${item.below_typical_pct}% below its typical price here (usually ${fmtMoney(item.typical_price)})</p>` : ''}
+      ${item.has_history && item.observed_low && !item.at_observed_low ? `<p class="tracked tabular">Tracked low ${fmtMoney(item.observed_low)} · ${item.observations} checks</p>` : ''}
+      <div class="price-row">
+        <span class="tabular">${item.price_is_from ? '<span class="price-from">From</span>' : ''}<span class="price">${fmtMoney(item.price_amount)}</span>${item.compare_at ? `<span class="was">${fmtMoney(item.compare_at)}</span>` : ''}</span>
+        <span class="link">View →</span>
+      </div>
+    </div>
+  `;
+  return a;
+}
+
+function matchesFilters(item) {
+  if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+  if (sizeQuery) {
+    const q = sizeQuery.trim().toLowerCase();
+    const hasSize = (item.sizes || []).some(s => s.toLowerCase().includes(q));
+    if (!hasSize) return false;
+  }
+  if (priceRange) {
+    const [min, max] = priceRange;
+    if (item.price_amount < min || item.price_amount > max) return false;
+  }
+  return true;
+}
+
+function render() {
+  const feed = document.getElementById('feed');
+  feed.innerHTML = '';
+  let items = allItems.filter(matchesFilters);
+  if (sortOrder === 'discount') {
+    items = items.slice().sort((a, b) => b.discount_pct - a.discount_pct);
+  }
+
+  const filtersActive = sizeQuery || priceRange || sortOrder !== 'recommended';
+  document.getElementById('filterClear').classList.toggle('visible', !!filtersActive);
+
+  if (!items.length) {
+    feed.innerHTML = '<p class="empty">Nothing matches right now — try widening the filters.</p>';
+  } else if (activeCategory === 'all' && !filtersActive) {
+    let rest = items;
+    if (items.length >= 6) {
+      const featured = items.slice(0, 4);
+      const featuredIds = new Set(featured.map(i => i.id));
+      rest = items.filter(i => !featuredIds.has(i.id));
+
+      const featuredHead = document.createElement('div');
+      featuredHead.className = 'section-head';
+      featuredHead.textContent = 'Best finds right now';
+      feed.appendChild(featuredHead);
+      featured.forEach(item => feed.appendChild(renderCard(item)));
+    }
+
+    const order = ['menswear', 'fragrance', 'watches'];
+    const grouped = {};
+    rest.forEach(i => { (grouped[i.category] = grouped[i.category] || []).push(i); });
+    const cats = order.filter(c => grouped[c]).concat(
+      Object.keys(grouped).filter(c => !order.includes(c))
+    );
+    cats.forEach(cat => {
+      const head = document.createElement('div');
+      head.className = 'section-head';
+      head.textContent = categoryLabel(cat);
+      feed.appendChild(head);
+      grouped[cat].forEach(item => feed.appendChild(renderCard(item)));
+    });
+  } else {
+    items.forEach(item => feed.appendChild(renderCard(item)));
+  }
+  document.getElementById('count').textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
+}
+
+function activateTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  activeCategory = tab.dataset.cat;
+  render();
+}
+
+document.getElementById('pills').addEventListener('click', (e) => {
+  const tab = e.target.closest('.tab');
+  if (tab) activateTab(tab);
+});
+document.getElementById('pills').addEventListener('keydown', (e) => {
+  const tab = e.target.closest('.tab');
+  if (tab && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    activateTab(tab);
+  }
+});
+
+document.getElementById('sizeFilter').addEventListener('input', (e) => {
+  sizeQuery = e.target.value;
+  render();
+});
+document.getElementById('priceFilter').addEventListener('change', (e) => {
+  const val = e.target.value;
+  priceRange = val ? val.split('-').map(Number) : null;
+  render();
+});
+document.getElementById('sortOrder').addEventListener('change', (e) => {
+  sortOrder = e.target.value;
+  render();
+});
+document.getElementById('filterClear').addEventListener('click', () => {
+  sizeQuery = '';
+  priceRange = null;
+  sortOrder = 'recommended';
+  document.getElementById('sizeFilter').value = '';
+  document.getElementById('priceFilter').value = '';
+  document.getElementById('sortOrder').value = 'recommended';
+  render();
+});
+
+fetch('data.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    allItems = data.feed || [];
+    document.getElementById('updated').textContent = timeAgo(data.generated_at);
+    render();
+  })
+  .catch(() => {
+    document.getElementById('feed').innerHTML = '<p class="empty">Feed not available yet — the first scan hasn\'t run.</p>';
+  });
+</script>
+</body>
+</html>    color: var(--ink-muted); text-decoration: underline; cursor: pointer;
+    align-self: flex-end; padding-bottom: 5px; display: none;
+  }
+  .filter-clear.visible { display: inline; }
+
+  #feed { display: grid; grid-template-columns: 1fr; gap: 56px 40px; }
+  @media (min-width: 680px) { #feed { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1040px) { #feed { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .card {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+  }
+  .thumb-wrap {
+    position: relative; width: 100%; aspect-ratio: 4 / 5;
+    background: #efeee9;
+    overflow: hidden; margin-bottom: 18px;
+  }
+  .thumb {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 500ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    display: block;
+  }
+  .card:hover .thumb { transform: scale(1.025); }
+
+  .tag {
+    position: absolute; top: 0; left: 0;
+    background: var(--tag-bg); color: var(--tag-text);
+    font-size: 11px; letter-spacing: 0.05em;
+    padding: 6px 11px;
+  }
+  .tag.dropped { background: var(--accent); }
+
+  .card-body { flex: 1; }
+  .meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .shop { font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .established { font-size: 11px; font-style: italic; color: var(--ink-muted); font-family: "Bodoni Moda", Georgia, serif; }
+
+  .title { font-family: "Bodoni Moda", Georgia, serif; font-size: 20px; font-weight: 400; margin: 0 0 6px; line-height: 1.3; }
+  .note { font-size: 13px; color: var(--ink-secondary); margin: 6px 0 0; line-height: 1.6; }
+  .sizes { font-size: 11px; color: var(--ink-muted); margin: 12px 0 0; letter-spacing: 0.02em; }
+
+  .lowflag {
+    display: inline-block; margin: 12px 0 0;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 2px; border-bottom: 1px solid var(--accent);
+  }
+  .tracked { font-size: 10px; color: var(--ink-muted); margin: 10px 0 0; letter-spacing: 0.03em; }
+
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--hairline); }
+  .price-from { font-size: 10px; color: var(--ink-muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .price { font-size: 18px; font-weight: 500; }
+  .was { font-size: 12px; color: var(--ink-muted); text-decoration: line-through; margin-left: 8px; }
+  .link { font-size: 10px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+
+  .section-head {
+    grid-column: 1 / -1;
+    font-family: "Bodoni Moda", Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .section-head:not(:first-child) { margin-top: 12px; }
+
+  .empty { text-align: center; padding: 72px 20px; color: var(--ink-secondary); font-size: 14px; grid-column: 1 / -1; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    border-top: 1px solid var(--hairline); padding-top: 20px; margin-top: 28px;
+  }
+  footer span { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Proper Finds</h1>
+    <p class="tagline">Every discount checked against its own price history — not an invented RRP.</p>
+    <span class="updated" id="updated"></span>
+  </header>
+
+  <nav class="index" id="pills">
+    <span class="tab active" data-cat="all" tabindex="0">All</span>
+    <span class="tab" data-cat="menswear" tabindex="0">Menswear</span>
+    <span class="tab" data-cat="fragrance" tabindex="0">Fragrance</span>
+    <span class="tab" data-cat="watches" tabindex="0">Watches</span>
+  </nav>
+
+  <div class="filters">
+    <div class="filter-field">
+      <label class="filter-label" for="sizeFilter">Size</label>
+      <input class="filter-input" id="sizeFilter" type="text" placeholder="e.g. M, W32, UK 9" />
+    </div>
+    <div class="filter-field">
+      <label class="filter-label" for="priceFilter">Price</label>
+      <select class="filter-select" id="priceFilter">
+        <option value="">Any price</option>
+        <option value="0-50">Under £50</option>
+        <option value="50-100">£50 – £100</option>
+        <option value="100-250">£100 – £250</option>
+        <option value="250-500">£250 – £500</option>
+        <option value="500-999999">£500+</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <label class="filter-label" for="sortOrder">Sort</label>
+      <select class="filter-select" id="sortOrder">
+        <option value="recommended">Recommended</option>
+        <option value="discount">Biggest discount</option>
+      </select>
+    </div>
+    <span class="filter-clear" id="filterClear">Clear filters</span>
+  </div>
+
+  <div id="feed"></div>
+
+  <footer>
     <span>Affiliate links — we may earn a commission</span>
     <span id="count"></span>
   </footer>
