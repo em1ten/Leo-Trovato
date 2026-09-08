@@ -74,16 +74,24 @@ def migrate_history(raw):
     """Old format was {item_id: last_price}. New format keeps the full shape
     of what we've observed: the low is the number that actually matters, since
     a retailer's 'was' price is theirs to invent but the price we watched it
-    sit at for weeks is not."""
+    sit at for weeks is not. 'sum' tracks a running total so a typical
+    (average) price can be derived - a single all-time high can be a one-off
+    outlier, whereas typical price is a more honest baseline to compare against."""
     migrated = {}
     for item_id, value in raw.items():
         if isinstance(value, dict):
-            migrated[item_id] = value
+            record = value
+            if "sum" not in record:
+                # Older record without sum - approximate using last price as
+                # the only known data point rather than losing history.
+                record["sum"] = record.get("last", 0) * record.get("observations", 1)
+            migrated[item_id] = record
         else:
             migrated[item_id] = {
                 "last": value,
                 "low": value,
                 "high": value,
+                "sum": value,
                 "first_seen": int(time.time()),
                 "observations": 1,
             }
@@ -99,6 +107,7 @@ def update_history(history, item_id, price):
             "last": price,
             "low": price,
             "high": price,
+            "sum": price,
             "first_seen": int(time.time()),
             "observations": 1,
         }
@@ -108,6 +117,7 @@ def update_history(history, item_id, price):
     record["last"] = price
     record["low"] = min(record["low"], price)
     record["high"] = max(record["high"], price)
+    record["sum"] = record.get("sum", record["last"]) + price
     record["observations"] = record.get("observations", 1) + 1
     return previous
 
@@ -247,7 +257,17 @@ def build_cards(product, shop, exclude_terms, must_include_any, price_history, n
     has_moved = has_history and observed_high > observed_low
     at_observed_low = bool(has_moved and previous and price <= previous["low"])
 
-    # How far below its own typical price is it sitting today?
+    # How far below its own typical price is it sitting today? Using the
+    # average of everything we've observed, not just the single highest price
+    # ever seen - a one-off peak isn't representative, but a running average
+    # genuinely reflects what this item normally costs here.
+    typical_price = None
+    below_typical_pct = 0
+    if has_history and observations > 0:
+        typical_price = round(record.get("sum", price * observations) / observations, 2)
+        if typical_price > 0:
+            below_typical_pct = round((1 - price / typical_price) * 100)
+
     below_observed_high = 0
     if has_history and observed_high > 0:
         below_observed_high = round((1 - price / observed_high) * 100)
@@ -264,7 +284,7 @@ def build_cards(product, shop, exclude_terms, must_include_any, price_history, n
         score += 45                                 # strongest: verified low
     if price_dropped:
         score += 20                                 # moved down since last scan
-    score += min(below_observed_high, 50) * 0.4     # below its own typical price
+    score += min(below_typical_pct, 50) * 0.4       # below its own typical (average) price
     if has_history:
         score += min(observations, 40) * 0.25       # confidence in the above
     if is_new:
@@ -299,6 +319,8 @@ def build_cards(product, shop, exclude_terms, must_include_any, price_history, n
         "observed_low": observed_low if has_history else None,
         "observed_high": observed_high if has_history else None,
         "below_observed_high": below_observed_high,
+        "typical_price": typical_price,
+        "below_typical_pct": below_typical_pct,
         "observations": observations,
         "tracked_since": first_seen,
         "has_history": has_history,
@@ -370,17 +392,36 @@ def main():
     feed = [item for item in feed if passes_threshold(item)]
     feed.sort(key=lambda item: item["score"], reverse=True)
 
-    # Guarantee each category a floor of slots before filling the rest by
-    # score, so 50-70% fashion markdowns can't push watches out entirely.
+    # Guarantee each SHOP a floor of slots first - not just each category.
+    # A category floor alone doesn't stop one large-catalogue retailer (e.g.
+    # Stuarts London) from filling every menswear slot on score alone, since
+    # "menswear is represented" and "every menswear shop is represented" are
+    # different things. Shop floor runs first; category floor then tops up
+    # any category that's still short even after every shop got its floor
+    # (e.g. if a whole category only has one shop with qualifying items).
     feed_size = config.get("feed_size", 60)
+    shop_floor = config.get("shop_floor", 3)
     category_floor = config.get("category_floor", 6)
     selected = []
     selected_ids = set()
+
+    by_shop = {}
+    for item in feed:
+        by_shop.setdefault(item["shop"], []).append(item)
+    for shop_items in by_shop.values():
+        for item in shop_items[:shop_floor]:
+            selected.append(item)
+            selected_ids.add(item["id"])
+
     by_category = {}
     for item in feed:
-        by_category.setdefault(item["category"], []).append(item)
+        if item["id"] not in selected_ids:
+            by_category.setdefault(item["category"], []).append(item)
     for category_items in by_category.values():
-        for item in category_items[:category_floor]:
+        remaining_floor = max(0, category_floor - sum(
+            1 for i in selected if i["category"] == category_items[0]["category"]
+        ))
+        for item in category_items[:remaining_floor]:
             selected.append(item)
             selected_ids.add(item["id"])
     for item in feed:
