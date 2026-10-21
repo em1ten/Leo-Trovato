@@ -1,5 +1,6 @@
 {
-  "_comment": "Public deal tracker config. Each shop_watch entry needs a domain (must serve /products.json - Shopify only), a category, and an affiliate network name for later reference. affiliate_id is blank until real Awin/CJ/eBay Partner Network accounts are approved - the scanner runs fine without it, links just won't be tagged yet.",
+  "_comment": "Public deal tracker config. Each shop_watch entry needs a domain (must serve /products.json - Shopify only), a category and an affiliate_network. Affiliate links: set awin_publisher_id once your Awin publisher account exists; each Awin shop has its advertiser ID in awin_mid. Flip a shop's affiliate_live to true only after Awin shows you as APPROVED for that advertiser - until then its links stay plain retailer links.",
+  "awin_publisher_id": "",
   "global_exclude": [
     "kids",
     "toy",
@@ -17,35 +18,39 @@
       "domain": "www.stuartslondon.com",
       "category": "menswear",
       "affiliate_network": "awin",
-      "affiliate_id": ""
+      "awin_mid": "3920",
+      "affiliate_live": false
     },
     {
       "name": "Jeanstore",
       "domain": "jeanstore.co.uk",
       "category": "menswear",
       "affiliate_network": "awin",
-      "affiliate_id": ""
+      "awin_mid": "",
+      "affiliate_live": false
     },
     {
       "name": "Son of a Stag",
       "domain": "sonofastag.com",
       "category": "menswear",
       "affiliate_network": "awin",
-      "affiliate_id": ""
+      "awin_mid": "",
+      "affiliate_live": false
     },
     {
       "name": "Escentual",
       "domain": "www.escentual.com",
       "category": "fragrance",
       "affiliate_network": "awin",
-      "affiliate_id": ""
+      "awin_mid": "2991",
+      "affiliate_live": false
     },
     {
       "name": "Sainte Cellier",
       "domain": "saintecellier.com",
       "category": "fragrance",
       "affiliate_network": "unconfirmed",
-      "affiliate_id": "",
+      "affiliate_live": false,
       "_note": "Niche/artisanal fragrance boutique, confirmed Shopify. UNVERIFIED: site may default to USD not GBP - check the first scan's actual prices against real listings before trusting this shop's output. Affiliate programme not yet checked."
     },
     {
@@ -53,7 +58,7 @@
       "domain": "www.lessenteurs.com",
       "category": "fragrance",
       "affiliate_network": "unconfirmed",
-      "affiliate_id": "",
+      "affiliate_live": false,
       "_note": "Belgravia niche perfumery since 1984, confirmed Shopify. Genuine compare_at_price markdowns confirmed live (not checkout-code discounts) via a real seasonal sale collection. Prestigious brand roster: Frederic Malle, Clive Christian, Maison Francis Kurkdjian, Creed, Kilian Paris. Affiliate programme not yet checked."
     },
     {
@@ -61,18 +66,34 @@
       "domain": "www.jurawatches.co.uk",
       "category": "watches",
       "affiliate_network": "awin",
-      "affiliate_id": "",
-      "max_pages": 12
+      "awin_mid": "7153",
+      "affiliate_live": false
     },
     {
       "name": "WatchNation",
       "domain": "www.watchnation.com",
       "category": "watches",
       "affiliate_network": "awin",
-      "affiliate_id": "",
+      "awin_mid": "19741",
+      "affiliate_live": false,
       "_note": "Confirmed Shopify, confirmed Awin affiliate programme live. Genuine authorised dealer - Hamilton, Marathon, Squale, Nivada Grenchen, Seiko, Orient among others."
+    },
+    {
+      "name": "Michael Stewart",
+      "domain": "www.michaelstewart.co.uk",
+      "category": "menswear",
+      "affiliate_network": "awin",
+      "awin_mid": "125724",
+      "affiliate_live": false,
+      "_note": "Added Oct 2026. Shopify, Awin (30-day cookie). Around 84% of in-stock products carried a was-price when checked, so its markdowns lean on price history before they rank - expect few of its items in the feed until history builds."
     }
   ],
+  "default_max_pages": 60,
+  "brand_cap": 2,
+  "category_exclude": {
+    "_comment": "Extra terms that rule a product out of a category. Jura lists Swarovski Christmas ornaments as jewellery, which put two in the Watches feed.",
+    "watches": ["ornament", "figurine", "bauble", "christmas decoration"]
+  },
   "feed_size": 30,
   "shop_floor": 3,
   "min_discount_pct": 20,
